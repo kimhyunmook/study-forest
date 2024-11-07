@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "jejudo";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
@@ -8,4 +15,60 @@ li {
 }
 a {
   text-decoration: none;
+}
+
+:root {
+  --black_414141: #414141;
+  --gray_818181: #818181;
+  --gray_dddddd: #ddd;
+  --gray_eeeeee: #eee;
+
+  --bg_f6f4ef: #f6f4ef;
+  --brand_99c08e: #99c08e;
+
+  --error_c41013: #c41013;
+  --error_bg_ffa3a5: #f50e0e;
+  --red_f50e0e: #f50e0e;
+
+  --green_e1edde: #e1edde;
+  --yellow_fff1cc: #fff1cc;
+  --blue_e0f1f5: #e0f1f5;
+  --pink_fde0e9: fde0e9;
+
+  --green_text_578246: #578246;
+  --yellow_text_c18e1b: #c18e1b;
+  --blue_text_418099: #418099;
+  --pink_text_bc3c6a: #bc3c6a;
+}
+.jejodo {
+  font-family: jejudo;
+}
+header {
+  width: 100%;
+  height: 100px;
+}
+header .gnb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+#container {
+  min-height: 100vh;
+  background-color: var(--bg_f6f4ef);
+}
+.studyCreateBtn {
+  width: 252px;
+  height: 54px;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background-color: var(--brand_99c08e);
+  text-shadow: 1px -1.5px 1px rgba(0, 0, 0, 0.5);
 }
