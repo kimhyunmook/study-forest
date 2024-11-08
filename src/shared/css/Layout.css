@@ -1,0 +1,39 @@
+#layout {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+.whiteContainer {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  border-radius: 20px;
+}
+.whiteContainer .title {
+  font-size: 24px;
+  line-height: 150%;
+  font-weight: 800;
+  color: var(--black_414141);
+}
+.commonBtn {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background-color: var(--brand_99c08e);
+  box-shadow: 0px 3px 0px #578246;
+}
+.commonBtn a {
+  letter-spacing: 1px;
+  font-size: 18px;
+  line-height: 150%;
+  width: 100%;
+  font-weight: 400;
+  text-align: center;
+  display: block;
+}

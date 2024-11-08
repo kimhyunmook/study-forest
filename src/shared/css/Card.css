@@ -1,0 +1,20 @@
+.cards {
+  display: flex;
+}
+.cards .card {
+  width: 358px;
+  height: 243px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid;
+  padding: 30px;
+}
+.cards .card .top {
+  display: flex;
+  justify-content: space-between;
+}
+.cards .card .top h3 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+}
