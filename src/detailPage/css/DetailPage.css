@@ -1,0 +1,145 @@
+.detail-page-contain {
+    max-width: 696px;
+    padding: 24px 24px;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.detail-page-title {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 28.64px;
+    text-align: left;
+}
+
+.detail-page-main {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+}
+
+.detail-page-op {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+
+.detail-page-nickname {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 21.48px;
+    text-align: left;
+}
+
+.detail-page-nickname-input {
+    width: 648px;
+    height: 48px;
+    border-radius: 15px;
+    padding-left: 20px;
+    border: 1px solid #DDDDDD;
+    outline: none;
+}
+
+.detail-page-studyName {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 21.48px;
+    text-align: left;
+}
+
+.detail-page-studyName-input {
+    width: 648px;
+    height: 48px;
+    padding-left: 20px;
+    border-radius: 15px;
+    border: 1px solid #DDDDDD;
+    outline: none;
+}
+
+.detail-page-introduce {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 21.48px;
+    text-align: left;
+}
+
+.detail-page-introduce-input {
+    width: 648px;
+    height: 98px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    border-radius: 15px;
+    border: 1px solid #DDDDDD;
+    word-wrap: break-word;
+    outline: none;
+}
+
+.detail-page-background {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 21.48px;
+    text-align: left;
+}
+
+.detail-page-background-imgChoice {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.detail-page-background-imgChoice-img {
+    width: 24%;
+}
+
+.detail-page-background-imgChoice-img img {
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.detail-page-password {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 21.48px;
+    text-align: left;
+}
+
+.detail-page-password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.detail-page-password-typeChange-icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 15px;
+    background-size: cover;
+}
+
+.password-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.detail-page-button img {
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.input-err {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: left;
+    color: red;
+    display: none;
+}
