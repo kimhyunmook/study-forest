@@ -7,7 +7,9 @@ function DetailPage() {
     const [studyName, setStudyName] = useState(""); //스터디 이름
     const [intro, setIntro] = useState(""); // 소개
     const [password, setPassword] = useState(""); //패스워드
-    const [rePassword, setrePassword] = useState(""); //패스워드 확인
+    const [rePassword, setRePassword] = useState(""); //패스워드 확인
+
+    const [isTouched, setIsTouched] = useState(false);
 
     //패스워드 type변경
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -20,7 +22,6 @@ function DetailPage() {
     const handlePasswordConfirmToggle = () => {
         setIsPasswordConfirmVisible(!isPasswordConfirmVisible);
     };
-
 
     const backgroundImages = [
         { src: 'background_1.png', alt: 'background_1' },
@@ -39,22 +40,36 @@ function DetailPage() {
             <div className='detail-page-main'>
                 <div className='detail-page-op'>
                     <div className='detail-page-nickname'>닉네임</div>
-                    <input className='detail-page-nickname-input' placeholder='닉네임을 입력해 주세요' />
-                    <div className="input-err"
-                        style={{ display: nickName.length > 10 ? "block" : "none" }}>10자 이내로 입력해주세요</div>
+                    <input
+                        value={nickName}
+                        onChange={(e) => setNickName(e.target.value)}
+                        className='detail-page-nickname-input'
+                        placeholder='닉네임을 입력해 주세요' />
                 </div>
+
                 <div className='detail-page-op'>
                     <div className='detail-page-studyName'>스터디 이름</div>
-                    <input className='detail-page-studyName-input' placeholder='스터디 이름을 입력해 주세요' />
+                    <input style={{ border: isTouched && !nickName ? "2px solid red" : "" }}
+                        value={studyName}
+                        onChange={(e) => setStudyName(e.target.value)}
+                        onFocus={() => setIsTouched(true)}
+                        onBlur={() => setIsTouched(false)}
+                        className='detail-page-studyName-input'
+                        placeholder='스터디 이름을 입력해 주세요' />
                     <div className="input-err"
-                        style={{ display: studyName.length > 10 ? "block" : "none" }}>10자 이내로 입력해주세요</div>
+                        style={{ display: isTouched && !nickName ? "block" : "none" }}>*스터디 이름을 입력해 주세요.</div>
                 </div>
+
                 <div className='detail-page-op'>
                     <div className='detail-page-introduce'>소개</div>
-                    <input className='detail-page-introduce-input' placeholder='소개 멘트를 작성해주세요' />
+                    <input
+                        value={intro}
+                        onChange={(e) => setIntro(e.target.value)}
+                        className='detail-page-introduce-input' placeholder='소개 멘트를 작성해주세요' />
                     <div className="input-err"
-                        style={{ display: intro.length > 10 ? "block" : "none" }}>10자 이내로 입력해주세요</div>
+                        style={{ display: intro & (intro.length < 0) ? "block" : "none" }}>소개 멘트를 작성해주세요</div>
                 </div>
+
                 <div className='detail-page-op'>
                     <div className='detail-page-background'>배경을 선택해주세요</div>
                     <div className='detail-page-background-imgChoice'>
@@ -69,53 +84,65 @@ function DetailPage() {
                 <div className='detail-page-op'>
                     <div className='detail-page-password'>비밀번호</div>
                     <div className='detail-page-password-container'>
-                        <input
-                            type={isPasswordVisible ? 'text' : 'password'}
-                            className='detail-page-studyName-input'
-                            placeholder='비밀번호를 입력해 주세요'
-                        />
-                        <div className="input-err"
-                            style={{ display: password.length > 10 ? "block" : "none" }}>10자 이내로 입력해주세요</div>
-                        <span
-                            className='detail-page-password-typeChange-icon'
-                            onClick={handlePasswordToggle}
-                        >
-                            <img
-                                src={
-                                    isPasswordVisible
-                                        ? `${process.env.PUBLIC_URL}/img/passwordIcon2.svg`
-                                        : `${process.env.PUBLIC_URL}/img/passwordIcon1.svg`
-                                }
-                                alt="passwordChangeIcon"
-                                className="password-icon"
+                        <div>
+                            <input
+                                style={{ border: (password.length < 8) && password ? "2px solid red" : "" }}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                type={isPasswordVisible ? 'text' : 'password'}
+                                className='detail-page-studyName-input'
+                                placeholder='비밀번호를 입력해 주세요'
                             />
-                        </span>
+
+                            <span
+                                className='detail-page-password-typeChange-icon'
+                                onClick={handlePasswordToggle}
+                            >
+                                <img
+                                    src={
+                                        isPasswordVisible
+                                            ? `${process.env.PUBLIC_URL}/img/passwordIcon2.svg`
+                                            : `${process.env.PUBLIC_URL}/img/passwordIcon1.svg`
+                                    }
+                                    alt="passwordChangeIcon"
+                                    className="password-icon"
+                                />
+                            </span>
+                        </div>
+                        <div className="input-err"
+                            style={{ display: (password.length < 8) && password ? "block" : "none" }}>8자 이상 입력해주세요</div>
                     </div>
                 </div>
+
                 <div className='detail-page-op'>
                     <div className='detail-page-password'>비밀번호 확인</div>
                     <div className='detail-page-password-container'>
-                        <input
-                            type={isPasswordConfirmVisible ? 'text' : 'password'}
-                            className='detail-page-studyName-input'
-                            placeholder='비밀번호를 다시 입력해 주세요'
-                        />
-                        <div className="input-err"
-                            style={{ display: rePassword.length > 10 ? "block" : "none" }}>10자 이내로 입력해주세요</div>
-                        <span
-                            className='detail-page-password-typeChange-icon'
-                            onClick={handlePasswordConfirmToggle}
-                        >
-                            <img
-                                src={
-                                    isPasswordVisible
-                                        ? `${process.env.PUBLIC_URL}/img/passwordIcon2.svg`
-                                        : `${process.env.PUBLIC_URL}/img/passwordIcon1.svg`
-                                }
-                                alt="passwordChangeIcon"
-                                className="password-icon"
+                        <div>
+                            <input
+                            style={{ border: (password !== rePassword) && rePassword ? "2px solid red" : "" }}
+                                value={rePassword}
+                                onChange={(e) => setRePassword(e.target.value)}
+                                type={isPasswordConfirmVisible ? 'text' : 'password'}
+                                className='detail-page-studyName-input'
+                                placeholder='비밀번호를 다시 입력해 주세요'
                             />
-                        </span>
+                            <span
+                                className='detail-page-password-typeChange-icon'
+                                onClick={handlePasswordConfirmToggle}
+                            >
+                                <img
+                                    src={
+                                        isPasswordVisible
+                                            ? `${process.env.PUBLIC_URL}/img/passwordIcon2.svg`
+                                            : `${process.env.PUBLIC_URL}/img/passwordIcon1.svg`
+                                    }
+                                    alt="passwordChangeIcon"
+                                    className="password-icon"
+                                />
+                            </span>
+                        </div>
+                        <div className="input-err"
+                            style={{ display: (password !== rePassword) && rePassword ? "block" : "none" }}>*비밀번호가 일치하지 않습니다</div>
                     </div>
                 </div>
                 <div className='detail-page-button'>
