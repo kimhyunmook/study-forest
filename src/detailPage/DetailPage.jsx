@@ -21,6 +21,18 @@ function DetailPage() {
         setIsPasswordConfirmVisible(!isPasswordConfirmVisible);
     };
 
+
+    const backgroundImages = [
+        { src: 'background_1.png', alt: 'background_1' },
+        { src: 'background_2.png', alt: 'background_2' },
+        { src: 'background_3.png', alt: 'background_3' },
+        { src: 'background_4.png', alt: 'background_4' },
+        { src: 'background_5.png', alt: 'background_5' },
+        { src: 'background_6.png', alt: 'background_6' },
+        { src: 'background_7.png', alt: 'background_7' },
+        { src: 'background_8.png', alt: 'background_8' },
+    ];
+
     return (
         <div className="detail-page-contain">
             <div className='detail-page-title'>스터디 만들기</div>
@@ -46,37 +58,11 @@ function DetailPage() {
                 <div className='detail-page-op'>
                     <div className='detail-page-background'>배경을 선택해주세요</div>
                     <div className='detail-page-background-imgChoice'>
-                        <div className='detail-page-background-imgChoice-img'>
-                            <img src={`${process.env.PUBLIC_URL}/img/background_1.png`} alt="background_1" />
-                        </div>
-
-                        <div className='detail-page-background-imgChoice-img'>
-                            <img src={`${process.env.PUBLIC_URL}/img/background_2.png`} alt="background_2" />
-                        </div>
-
-                        <div className='detail-page-background-imgChoice-img'>
-                            <img src={`${process.env.PUBLIC_URL}/img/background_3.png`} alt="background_3" />
-                        </div>
-
-                        <div className='detail-page-background-imgChoice-img'>
-                            <img src={`${process.env.PUBLIC_URL}/img/background_4.png`} alt="background_4" />
-                        </div>
-
-                        <div className='detail-page-background-imgChoice-img'>
-                            <img src={`${process.env.PUBLIC_URL}/img/background_5.png`} alt="background_5" />
-                        </div>
-
-                        <div className='detail-page-background-imgChoice-img'>
-                            <img src={`${process.env.PUBLIC_URL}/img/background_6.png`} alt="background_6" />
-                        </div>
-
-                        <div className='detail-page-background-imgChoice-img'>
-                            <img src={`${process.env.PUBLIC_URL}/img/background_7.png`} alt="background_7" />
-                        </div>
-
-                        <div className='detail-page-background-imgChoice-img'>
-                            <img src={`${process.env.PUBLIC_URL}/img/background_8.png`} alt="background_8" />
-                        </div>
+                        {backgroundImages.map((image, index) => (
+                            <div className='detail-page-background-imgChoice-img' key={index}>
+                                <img src={`${process.env.PUBLIC_URL}/img/${image.src}`} alt={image.alt} />
+                            </div>
+                        ))}
                     </div>
                 </div>
 
