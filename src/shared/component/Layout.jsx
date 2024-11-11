@@ -1,11 +1,22 @@
 import { Link } from "react-router-dom";
 import "../css/Layout.css";
 
-export default function Layout({ children }) {
-  return <div id="layout">{children}</div>;
+export default function Layout({ children, paddingBottom }) {
+  return (
+    <div id="layout" style={{ paddingBottom }}>
+      {children}
+    </div>
+  );
 }
 
-export function Button({ children, className, to, onClick, width, height }) {
+export function Button({
+  children,
+  className = "",
+  to = "",
+  onClick,
+  width = "",
+  height = "",
+}) {
   const btnAtt = {
     style: {
       maxWidth: width,
@@ -23,9 +34,15 @@ export function Button({ children, className, to, onClick, width, height }) {
     </button>
   );
 }
-export function WhiteContainer({ children, title, marginBottom, titleMargin }) {
+export function WhiteContainer({
+  className = "",
+  children,
+  title = "",
+  marginBottom = "",
+  titleMargin = "",
+}) {
   return (
-    <div className="whiteContainer" style={{ marginBottom }}>
+    <div className={`whiteContainer ${className}`} style={{ marginBottom }}>
       <h2 className="title" style={{ marginBottom: titleMargin }}>
         {title}
       </h2>

@@ -1,17 +1,68 @@
 .cards {
   display: flex;
+  flex-wrap: wrap;
 }
+
 .cards .card {
   width: 358px;
   height: 243px;
   border-radius: 20px;
   overflow: hidden;
-  padding: 30px;
-  background-color: var(--green_e1edde);
   margin-right: 24px;
+  position: relative;
+}
+.cards .card.green {
+  background-color: var(--green_e1edde);
+}
+.cards .card.green .top h3 span {
+  color: var(--green_text_578246);
+}
+.cards .card.yellow {
+  background-color: var(--yellow_fff1cc);
+}
+.cards .card.yellow .top h3 span {
+  color: var(--yellow_text_c18e1b);
+}
+.cards .card.blue {
+  background-color: var(--blue_e0f1f5);
+}
+.cards .card.blue .top h3 span {
+  color: var(--blue_text_418099);
+}
+.cards .card.pink {
+  background-color: var(--pink_fde0e9);
+}
+.cards .card.pink .top h3 span {
+  color: var(--pink_text_bc3c6a);
+}
+.cards .card.bg1 {
+  background: url(../../../public/img/bg1.jpg) no-repeat center;
+  background-size: cover;
+}
+.cards .card.bg2 {
+  background: url(../../../public/img/bg2.jpg) no-repeat center;
+  background-size: cover;
+}
+.cards .card.bg3 {
+  background: url(../../../public/img/bg3.jpg) no-repeat center;
+  background-size: cover;
+}
+.cards .card.bg4 {
+  background: url(../../../public/img/bg4.jpg) no-repeat center;
+  background-size: cover;
+}
+.cards .card.mbn {
+  margin-bottom: 24px;
 }
 .cards .card:nth-of-type(3n) {
   margin-right: 0;
+}
+.cards .card .inner {
+  height: 100%;
+  padding: 30px;
+}
+.cards .card .cover {
+  background-color: rgba(0, 0, 0, 0.25);
 }
 .cards .card .top {
   display: flex;
@@ -22,9 +73,12 @@
   font-weight: 700;
   font-size: 18px;
   letter-spacing: 1px;
+  color: var(--black_414141);
+}
+.cards .card .cover .top h3 {
+  color: #fff;
 }
 .cards .card .top h3 span {
-  color: var(--green_text_578246);
   margin-right: 1px;
 }
 .cards .card .top .point {
@@ -45,6 +99,13 @@
   font-weight: 500;
   font-size: 12px;
 }
+.cards .card .cover .top .point {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.cards .card .cover .top .point p {
+  color: #fff;
+}
 .cards .card .top .point p span {
   margin-right: 0.5px;
 }
@@ -54,14 +115,34 @@
   font-weight: 400;
   margin-bottom: 30px;
 }
+.cards .card .cover .inProgress {
+  color: #fff;
+}
 .cards .card .content {
   font-size: 16px;
   font-weight: 400;
   color: var(--black_414141);
 }
+.cards .card .cover .content {
+  color: #fff;
+}
 .cards .card .emogis {
   display: flex;
+  position: absolute;
+  bottom: 30px;
 }
 .cards .card .emogis .emogi {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 26px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+}
+.cards .card .emogis .emogi .emogiType {
+  margin-right: 5px;
 }

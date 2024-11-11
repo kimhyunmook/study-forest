@@ -46,7 +46,7 @@ button {
   --green_e1edde: #e1edde;
   --yellow_fff1cc: #fff1cc;
   --blue_e0f1f5: #e0f1f5;
-  --pink_fde0e9: fde0e9;
+  --pink_fde0e9: #fde0e9;
 
   --green_text_578246: #578246;
   --yellow_text_c18e1b: #c18e1b;
@@ -55,7 +55,7 @@ button {
 }
 .jejudo {
   font-family: jejudo;
-  text-shadow: 0.3px -2px 0px rgba(0, 0, 0, 0.4);
+  text-shadow: 0.3px -1.5px 0px rgba(0, 0, 0, 0.4);
   color: #fff;
 }
 
