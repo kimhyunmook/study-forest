@@ -40,7 +40,7 @@ export function PasswordInput({ password, setPassword, isPasswordVisible, rePass
                             display: password.length < 8 && password ? "block" : "none",
                         }}
                     >
-                        8자 이상 입력해주세요
+                        *8자 이상 입력해주세요
                     </div>
                 </div>
             </div>
