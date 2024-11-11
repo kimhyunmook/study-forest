@@ -94,14 +94,7 @@
     flex-wrap: wrap;
 }
 
-.detail-page-background-imgChoice-img {
-    width: 24%;
-}
 
-.detail-page-background-imgChoice-img img {
-    border-radius: 16px;
-    cursor: pointer;
-}
 
 .detail-page-password {
     font-size: 18px;
@@ -115,8 +108,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap:10px;
-    
+    gap: 10px;
+
 }
 
 .detail-page-password-typeChange-icon {
@@ -124,7 +117,7 @@
     height: 24px;
     position: absolute;
     right: 15px;
-    top : 15px;
+    top: 12px;
 }
 
 .password-icon {
@@ -145,4 +138,30 @@
     text-align: left;
     color: red;
     display: none;
+}
+
+
+.detail-page-background-imgChoice-img {
+    width: 24%;
+    display: flex;
+    position: relative;
+}
+
+.detail-page-background-imgChoice-img img {
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.detail-page-imageSelect {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.detail-page-imageSelect-icon {
+    width: 20px;
+    height: 20px;
 }
