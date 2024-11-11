@@ -6,7 +6,7 @@ export default function Header() {
         <Link to="/">
           <img src="/img/img_logo.svg" alt="로고" />
         </Link>
-        <Link to="/" className="jejodo studyCreateBtn">
+        <Link to="/DetailPage" className="jejodo studyCreateBtn">
           스터디 만들기
         </Link>
       </div>
