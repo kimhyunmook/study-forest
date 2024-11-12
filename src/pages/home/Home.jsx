@@ -1,9 +1,12 @@
-import Cards, { Card } from "../../shared/component/Card";
+import { useState } from "react";
+import Cards, { Card } from "./components/Card";
 import Layout, { WhiteContainer } from "../../shared/component/Layout";
 import SearchBox from "./components/Search";
-import "./home.css";
+import "./css/home.css";
 
 export default function Home() {
+  const [study, setStudy] = useState([{type:'green',point:200,inProgress:33,userName:'test',name:"스터디!"}]);
+  const [studyLook, setStudyLook] = useState([]);
   return (
     <Layout paddingBottom={"174px"}>
       <WhiteContainer
@@ -12,34 +15,20 @@ export default function Home() {
         titleMargin={"40px"}
         marginBottom="40px"
       >
-        <Cards>
-          <Card
-            type="bg1"
-            point={202}
-            inProgress={22}
-            userName="이유디"
-            name="의 UX 스터디"
-          >
-            Slow And Steady Wins The Race!!
-          </Card>
-          <Card
-            type="green"
-            point={202}
-            inProgress={22}
-            userName="이유디"
-            name="의 UX 스터디"
-          >
-            Slow And Steady Wins The Race!!
-          </Card>
-          <Card
-            type="yellow"
-            point={202}
-            inProgress={22}
-            userName="이유디"
-            name="의 UX 스터디"
-          >
-            Slow And Steady Wins The Race!!
-          </Card>
+        <Cards noList="아직 조회한 스터디가 없어요" height="229px">
+          {studyLook.map((v, i) => {
+            return (
+              <Card
+                type={v.type}
+                point={v.point}
+                inProgress={v.inProgress}
+                userName={v.userName}
+                name={v.name}
+              >
+                {v.content}
+              </Card>
+            );
+          })}
         </Cards>
       </WhiteContainer>
       <WhiteContainer
@@ -48,28 +37,29 @@ export default function Home() {
         titleMargin={"40px"}
       >
         <SearchBox />
-        <Cards>
-          {["pink", "blue", "bg2", "bg3", "bg4", "green"].map((v, i) => {
+        <Cards noList="아직 둘러 볼 스터디가 없어요" height="600px">
+          {study.map((v, i) => {
             let mbn = "";
             if (i < 3) mbn = "mbn";
             return (
               <Card
-                key={i}
-                type={v}
-                point={202}
-                inProgress={1}
-                userName="이유디"
-                name="의 UX 스터디"
+                type={v.type}
+                point={v.point}
+                inProgress={v.inProgress}
+                userName={v.userName}
+                name={v.name}
                 className={mbn}
               >
-                Slow And Steady Wins The Race!!
+                {v.content}
               </Card>
             );
           })}
+        </Cards>
+        {!!study.length ? (
           <a href="#" className="moreBtn">
             더보기
           </a>
-        </Cards>
+        ) : null}
       </WhiteContainer>
     </Layout>
   );
