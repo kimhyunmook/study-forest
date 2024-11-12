@@ -7,7 +7,6 @@ import { BackgroundImageSelect } from "./components/BackgroundImageSelect";
 import { PasswordInput } from "./components/PasswordInput";
 import { CreateButton } from "./components/CreateButton";
 
-
 function DetailPage() {
   const [nickName, setNickName] = useState(""); //닉네임
   const [studyName, setStudyName] = useState(""); //스터디 이름
@@ -16,7 +15,7 @@ function DetailPage() {
   const [rePassword, setRePassword] = useState(""); //패스워드 확인
 
   const [isTouched, setIsTouched] = useState(false);
-  const [imgChoice, setImgChoice] = useState();
+  const [background, setBackground] = useState();
 
   //패스워드 type변경
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -43,7 +42,7 @@ function DetailPage() {
           setIsTouched={setIsTouched}
         />
         <IntroInput intro={intro} setIntro={setIntro} />
-        <BackgroundImageSelect imgChoice={imgChoice} setImgChoice={setImgChoice} />
+        <BackgroundImageSelect background={background} setBackground={setBackground} />
         <PasswordInput
           password={password}
           setPassword={setPassword}
@@ -57,7 +56,14 @@ function DetailPage() {
           handlePasswordToggle={handlePasswordToggle}
           handlePasswordConfirmToggle={handlePasswordConfirmToggle}
         />
-        <CreateButton />
+        <CreateButton
+          nickName={nickName}
+          studyName={studyName}
+          IntroInput intro={intro}
+          background={background}
+          password={password}
+          rePassword={rePassword}
+        />
       </div>
     </div>
   );
