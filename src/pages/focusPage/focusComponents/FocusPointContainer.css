@@ -1,0 +1,18 @@
+.focusPointCon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #0000001a;
+  border-radius: 50px;
+  width: 116px;
+  height: 35px;
+}
+.focusPointImg {
+  width: 19px;
+  height: 19px;
+}
+.focusPointFont {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.09px;
+}
