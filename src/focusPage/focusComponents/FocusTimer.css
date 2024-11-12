@@ -1,0 +1,51 @@
+.focusTimer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 94px;
+}
+.timerDiv {
+  font-size: 150px;
+  font-weight: 800;
+  line-height: 179px;
+  color: #414141;
+}
+.timerBt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 333px;
+  height: 60px;
+  border-radius: 50px;
+  border: 0;
+  background-color: #99c08e;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 33.41px;
+}
+.timerBtContents {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.focusStartBt {
+  width: 44px;
+  height: 44px;
+}
+.timerInput {
+  font-size: 150px;
+  font-weight: 800;
+  line-height: 179px;
+  color: #414141;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+.focusPauseBt {
+  width: 35.2px;
+  height: 35.2px;
+}

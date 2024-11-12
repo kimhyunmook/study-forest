@@ -1,0 +1,24 @@
+.focusTopTitle {
+  display: flex;
+  justify-content: space-between;
+  width: 1168px;
+}
+
+.focusTitleFont {
+  font-size: 32px;
+  font-weight: 800;
+  color: #414141;
+}
+.focusTopBtCon {
+  display: flex;
+  gap: 16px;
+}
+.focusButtonTop {
+  height: 48px;
+  border-radius: 15px;
+  border: 1px solid #dddddd;
+  color: #818181;
+  background-color: #ffffff;
+  padding: 12px 24px 12px 24px;
+  cursor: pointer;
+}
