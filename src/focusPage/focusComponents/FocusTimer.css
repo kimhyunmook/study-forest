@@ -10,7 +10,7 @@
   line-height: 179px;
   color: #414141;
 }
-.timerBt {
+.timerStartBt {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +30,7 @@
   align-items: center;
   gap: 16px;
 }
-.focusStartBt {
+.focusStartBtImg {
   width: 44px;
   height: 44px;
 }
@@ -39,13 +39,41 @@
   font-weight: 800;
   line-height: 179px;
   color: #414141;
-  width: 200px;
+  width: 400px;
   height: 200px;
   text-align: center;
   border: none;
   outline: none;
 }
-.focusPauseBt {
+.runningBtCon {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.focusPauseBtImg {
   width: 35.2px;
   height: 35.2px;
+}
+
+.timerSideBt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
+  border: 0;
+
+  cursor: pointer;
+}
+.pause {
+  background-color: #578246;
+}
+
+.runningStartBt {
+  background-color: #818181;
+}
+
+.reStart {
+  background-color: #99c08e;
 }

@@ -78,8 +78,14 @@ function FocusTimer() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === "min") setMin(parseInt(value) || 0);
-    if (name === "sec") setSec(parseInt(value) || 0);
+
+    const newValue = Math.max(
+      0,
+      Math.min(parseInt(value) || 0, name === "min" ? 1440 : 59)
+    ); // min 및 max 범위 제한
+
+    if (name === "min") setMin(parseInt(newValue) || 0);
+    if (name === "sec") setSec(parseInt(newValue) || 0);
   };
 
   return (
@@ -90,20 +96,16 @@ function FocusTimer() {
             <input
               type="number"
               name="min"
-              value={min}
+              value={isEditing && min === 0 ? "" : min}
               onChange={handleInputChange}
-              min={0}
-              max={59}
               className="timerInput"
             />
             :
             <input
               type="number"
               name="sec"
-              value={sec}
+              value={isEditing && sec === 0 ? "" : sec}
               onChange={handleInputChange}
-              min={0}
-              max={59}
               className="timerInput"
             />
           </div>
@@ -114,33 +116,56 @@ function FocusTimer() {
       {/* 타이머 시작 전에는 start 버튼 */}
       {!isRunning ? (
         <div>
-          <button type="button" className="timerBt" onClick={handleStart}>
+          <button type="button" className="timerStartBt" onClick={handleStart}>
             <div className="timerBtContents">
               <img
                 src={`${process.env.PUBLIC_URL}/img/ic_play.png`}
-                className="focusStartBt"
+                className="focusStartBtImg"
+                alt="startImg"
               />
               <div>Start!</div>
             </div>
           </button>
         </div>
       ) : (
-        <div>
-          <button type="button" className="timerBt">
+        <div className="runningBtCon">
+          {/* 정지 버튼 */}
+          <button
+            type="button"
+            className="timerSideBt pause"
+            onClick={handleStop}
+          >
             <div>
               <img
                 src={`${process.env.PUBLIC_URL}/img/ic_pause.png`}
-                className="focusPauseBt"
+                className="focusPauseBtImg"
+                alt="pauseImg"
               />
             </div>
           </button>
-          <button type="button" className="timerBt" onClick={handleStart}>
+          {/* 시작 버튼 */}
+          <button
+            type="button"
+            className="timerStartBt runningStartBt"
+            onClick={handleStart}
+          >
             <div className="timerBtContents">
               <img
                 src={`${process.env.PUBLIC_URL}/img/ic_play.png`}
-                className="focusStartBt"
+                className="focusStartBtImg"
+                alt="startImg"
               />
               <div>Start!</div>
+            </div>
+          </button>
+          {/* 재시작 버튼 */}
+          <button type="button" className="timerSideBt reStart">
+            <div>
+              <img
+                src={`${process.env.PUBLIC_URL}/img/ic_restart.png`}
+                className="focusPauseBtImg"
+                alt="pauseImg"
+              />
             </div>
           </button>
         </div>
