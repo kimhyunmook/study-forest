@@ -50,4 +50,5 @@
   font-size: 16px;
   font-weight: 500;
   color: var(--green_text_578246);
+  display: block;
 }
