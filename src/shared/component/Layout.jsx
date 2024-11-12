@@ -24,7 +24,7 @@ export function Button({
     },
   };
   const linkAtt = {
-    className: !!className ? `jejudo` : "jejudo",
+    className: !!className ? `jejudo ${className}` : "jejudo",
     to,
     onClick,
   };
@@ -34,15 +34,20 @@ export function Button({
     </button>
   );
 }
+
 export function WhiteContainer({
   className = "",
   children,
   title = "",
   marginBottom = "",
   titleMargin = "",
+  minHeight = "auto",
 }) {
   return (
-    <div className={`whiteContainer ${className}`} style={{ marginBottom }}>
+    <div
+      className={`whiteContainer ${className}`}
+      style={{ marginBottom, minHeight }}
+    >
       <h2 className="title" style={{ marginBottom: titleMargin }}>
         {title}
       </h2>

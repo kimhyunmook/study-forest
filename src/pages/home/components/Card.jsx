@@ -14,7 +14,7 @@ export function Card({
       <div className={type.includes("bg") ? "cover inner" : "inner"}>
         <div className="top">
           <h3 className="name">
-            <span>{userName}</span>
+            <span>{userName}</span>의
             {name}
           </h3>
           <div className="point">
@@ -44,6 +44,10 @@ export function Card({
   );
 }
 
-export default function Cards({ children }) {
-  return <div className="cards">{children}</div>;
+export default function Cards({ children, noList = "", height = "auto" }) {
+  return (
+    <div className="cards" style={{ height }}>
+      {!!children[0] ? children : <p className="noList">{noList}</p>}
+    </div>
+  );
 }
