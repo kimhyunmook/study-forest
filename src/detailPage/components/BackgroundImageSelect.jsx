@@ -1,6 +1,11 @@
 import { backgroundImages } from "./backgroundImages";
+import { useEffect } from "react";
 
-export function BackgroundImageSelect({ imgChoice, setImgChoice }) {
+export function BackgroundImageSelect({ background, setBackground }) {
+    useEffect(() => {
+        console.log("Updated Background:", background);
+    }, [background]);
+
     return (
         <div className="detail-page-op">
             <div className="detail-page-background">배경을 선택해주세요</div>
@@ -9,10 +14,9 @@ export function BackgroundImageSelect({ imgChoice, setImgChoice }) {
                 {backgroundImages.map((image, index) => (
                     <div
                         className="detail-page-background-imgChoice-img"
-                        value={index}
+                        value={index + 1}
                         onClick={() => {
-                            setImgChoice(index);
-                            console.log(index);
+                            setBackground(image.value);
                         }}
                         key={index}
                     >
@@ -22,7 +26,7 @@ export function BackgroundImageSelect({ imgChoice, setImgChoice }) {
                         />
 
                         {/* 선택된 이미지 가운데에 select-icon이 올라가게 설정 */}
-                        {imgChoice === index && (
+                        {background === image.value && (
                             <div className="detail-page-imageSelect">
                                 <img
                                     className="detail-page-imageSelect-icon"

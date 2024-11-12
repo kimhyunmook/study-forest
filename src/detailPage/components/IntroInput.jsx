@@ -2,7 +2,7 @@ export function IntroInput({ intro, setIntro }) {
     return (
         <div className="detail-page-op">
             <div className="detail-page-introduce">소개</div>
-            <input
+            <textarea
                 value={intro}
                 onChange={(e) => setIntro(e.target.value)}
                 className="detail-page-introduce-input"
