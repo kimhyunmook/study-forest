@@ -1,0 +1,61 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.focusWrap {
+  font-family: pretendard;
+  background-color: #ffffff;
+  border-radius: 20px;
+  max-width: 1248px;
+  max-height: 774px;
+  padding: 40px;
+  margin-top: 53.5px;
+}
+.focusContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.focusTop {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.focusFlexCon {
+  display: flex;
+  flex-direction: column;
+  width: 176px;
+  gap: 8px;
+}
+.grayFont {
+  color: #818181;
+  font-size: 18px;
+  font-weight: 400;
+}
+.focusMainWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 546px;
+  border: 1px solid #dddddd;
+  border-radius: 20px;
+  padding: 40px 24px 40px 24px;
+}
+.focusMainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+.focusMainTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 28.64px;
+  color: #414141;
+}
