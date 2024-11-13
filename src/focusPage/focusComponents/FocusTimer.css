@@ -8,7 +8,6 @@
   font-size: 150px;
   font-weight: 800;
   line-height: 179px;
-  color: #414141;
 }
 .timerStartBt {
   display: flex;
@@ -45,7 +44,7 @@
   border: none;
   outline: none;
 }
-.runningBtCon {
+.timerBtCon {
   display: flex;
   gap: 24px;
   align-items: center;
@@ -72,8 +71,9 @@
 
 .runningStartBt {
   background-color: #818181;
+  cursor: not-allowed;
 }
 
-.reStart {
+.restart {
   background-color: #99c08e;
 }
