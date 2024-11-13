@@ -1,0 +1,23 @@
+.study-page-contain {
+  background-color: white;
+
+}
+
+.emote-box {
+  width: 1120px;
+  height: 31px;
+}
+
+.introduce-box {
+  width: 1120px;
+  height: 203px;
+}
+
+.habbit-box {
+  width: 1120px;
+  height: 511px;
+  border-radius: 20px;
+  border: 1px;
+  padding: 24px;
+  gap: 10px;
+}

@@ -3,32 +3,36 @@ import { useState } from "react";
 
 function  studyPage() {
   
-  const [password, setPassword] = useState(""); //패스워드
+  
 
   return (
 
     <div>
-      <header>왼쪽이미지 첨부</header>
+      <header>왼쪽이모티콘 첨부???</header>
       <p></p>
-      <div>큰박스
+      <div classname="study-page-contain">큰박스
         <div>첫 박스
-          <div>이모티콘 박스</div> //이모티콘 API 
-          <div>공유하기 \ 수정하기 \ 스터디 삭제하기</div>
+          <div className="emote-box">이모티콘 박스</div> //이모티콘 API 
+          <div>
+            <button>공유하기</button>
+            <button>수정하기</button>
+            <button>스터디 삭제하기</button>
+            </div>
         </div>
-        <div>두번째 박스
+        <div className="introduce-box">두번째 박스
           <div>
             <div>연우의 개발공장</div>
             <div>
-              오늘의 습관
-              오늘의 집중
+              <button>오늘의 습관</button>
+              <button>오늘의 집중</button> 
             </div>
           </div>
           <p>소개</p>
-          <p>Slow And Steady Wins The Race! 다들 오늘 하루도 화이팅 :) </p>
+          <p>오늘하루도 화이팅:) </p>
           <p>현재까지 획득한 포인트</p>
-          <div>310P 획득</div>
+          <div>310P 획득??? / 포인트 획득 </div>
         </div>
-        <div>세번째 박스
+        <div className="habbit-box">세번째 박스
         <div>습관 기록표</div>
         <div>월 화 수 목 금 토 일</div>
         <div>미라클 모닝</div>
