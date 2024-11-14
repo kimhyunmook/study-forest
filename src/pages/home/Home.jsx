@@ -1,12 +1,53 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Cards, { Card } from "./components/Card";
 import Layout, { WhiteContainer } from "../../shared/component/Layout";
 import SearchBox from "./components/Search";
 import "./css/home.css";
+import { getLatestStudyApi, getStudyListApi } from "./api/homeApi";
+import { setCookie } from "../../shared/hook/hook";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const [study, setStudy] = useState([{type:'green',point:200,inProgress:33,userName:'test',name:"스터디!"}]);
+  const [study, setStudy] = useState([]);
   const [studyLook, setStudyLook] = useState([]);
+  const [cok, setCok] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(6);
+  const [orderBy, setOrderBy] = useState("desc"); //asc
+  const [keyword, setKeyword] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getStudyListApi(page, pageSize, orderBy, keyword).then((res) => {
+      setStudy(res.data);
+    });
+  }, [pageSize, orderBy]);
+
+  function moreBtnHandle(e) {
+    e.preventDefault();
+    setPageSize(pageSize + 6);
+  }
+  function searchHandle(e) {
+    e.preventDefault();
+    console.log(123);
+  }
+  const latest = [
+    ...setCookie("get", {
+      cookieName: "studyLook",
+    }),
+  ];
+  useEffect(() => {
+    setCok([...latest]);
+  }, []);
+  useEffect(() => {
+    let body = {
+      id: latest.reverse(),
+    };
+    getLatestStudyApi(body).then((res) => {
+      console.log(res);
+    });
+  }, [cok]);
+
   return (
     <Layout paddingBottom={"174px"}>
       <WhiteContainer
@@ -19,13 +60,16 @@ export default function Home() {
           {studyLook.map((v, i) => {
             return (
               <Card
-                type={v.type}
+                key={i}
+                type={v.background}
                 point={v.point}
-                inProgress={v.inProgress}
-                userName={v.userName}
-                name={v.name}
+                emoji={v.emojis}
+                inProgress={v.createdAt}
+                userName={v.nickName}
+                name={v.studyName}
+                to={v.id}
               >
-                {v.content}
+                {v.introduce}
               </Card>
             );
           })}
@@ -36,27 +80,53 @@ export default function Home() {
         title={"스터디 둘러보기"}
         titleMargin={"40px"}
       >
-        <SearchBox />
-        <Cards noList="아직 둘러 볼 스터디가 없어요" height="600px">
+        <SearchBox
+          selectValue={setOrderBy}
+          inputValue={setKeyword}
+          searchHandle={searchHandle}
+        />
+        <Cards
+          noList="아직 둘러 볼 스터디가 없어요"
+          height={!!!study.length ? "600px" : "auto"}
+        >
           {study.map((v, i) => {
+            function details(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              const cookieName = "studyLook";
+              let newArr = [...cok, v.id];
+              setCok(newArr);
+              setCookie("create", {
+                cookieName,
+                cookieValue: newArr,
+                end: 1,
+              });
+              // setTimeout(() => {
+              //   navigate(`/study/${v.id}`);
+              // }, 500);
+            }
             let mbn = "";
-            if (i < 3) mbn = "mbn";
+            if (i < study.length - 3) mbn = "mbn";
             return (
               <Card
-                type={v.type}
+                to={v.id}
+                onClick={details}
+                key={i}
+                type={v.background}
                 point={v.point}
-                inProgress={v.inProgress}
-                userName={v.userName}
-                name={v.name}
+                emoji={v.emojis}
+                inProgress={v.createdAt}
+                userName={v.nickName}
+                name={v.studyName}
                 className={mbn}
               >
-                {v.content}
+                {v.introduce}
               </Card>
             );
           })}
         </Cards>
         {!!study.length ? (
-          <a href="#" className="moreBtn">
+          <a href="#" onClick={moreBtnHandle} className="moreBtn">
             더보기
           </a>
         ) : null}
