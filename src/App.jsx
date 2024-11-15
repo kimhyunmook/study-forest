@@ -4,7 +4,6 @@ import Header from "./shared/component/header";
 import DetailPage from "./pages/detailPage/DetailPage";
 import FocusPage from "./pages/focusPage/FocusPage";
 
-
 function App() {
   return (
     <BrowserRouter>
@@ -12,8 +11,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/detailPage" element={<DetailPage />} />
-          <Route path="/focusPage" element={<FocusPage />} />
+          <Route path="/detail" element={<DetailPage />} />
+          <Route path="/focus" element={<FocusPage />} />
         </Routes>
       </div>
     </BrowserRouter>

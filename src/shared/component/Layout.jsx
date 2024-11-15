@@ -12,15 +12,17 @@ export default function Layout({ children, paddingBottom }) {
 export function Button({
   children,
   className = "",
-  to = "",
+  to = "#",
   onClick,
   width = "",
   height = "",
+  style = {},
 }) {
   const btnAtt = {
     style: {
       maxWidth: width,
-      maxHeight: height,
+      height: height,
+      ...style,
     },
   };
   const linkAtt = {

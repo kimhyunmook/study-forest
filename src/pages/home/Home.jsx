@@ -23,28 +23,24 @@ export default function Home() {
     });
   }, [pageSize, orderBy]);
 
-  function moreBtnHandle(e) {
+  const moreBtnHandle = (e) => {
     e.preventDefault();
     setPageSize(pageSize + 6);
-  }
-  function searchHandle(e) {
-    e.preventDefault();
-    console.log(123);
-  }
-  const latest = [
-    ...setCookie("get", {
-      cookieName: "studyLook",
-    }),
-  ];
+  };
+  const searchHandle = (e) => e.preventDefault();
+  const latest = setCookie("get", {
+    cookieName: "studyLook",
+  });
+
   useEffect(() => {
     setCok([...latest]);
   }, []);
   useEffect(() => {
     let body = {
-      id: latest.reverse(),
+      id: latest,
     };
     getLatestStudyApi(body).then((res) => {
-      console.log(res);
+      setStudyLook(res.data);
     });
   }, [cok]);
 
@@ -101,6 +97,7 @@ export default function Home() {
                 cookieValue: newArr,
                 end: 1,
               });
+
               // setTimeout(() => {
               //   navigate(`/study/${v.id}`);
               // }, 500);
