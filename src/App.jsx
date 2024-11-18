@@ -12,13 +12,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-<<<<<<< HEAD
-          <Route path="/detailPage" element={<DetailPage />} />
-          <Route path="/focusPage" element={<FocusPage />} />
           <Route path="/todayhabits" element={<TodayHabits />} />
           <Route path="/detail" element={<DetailPage />} />
           <Route path="/focus" element={<FocusPage />} />
->>>>>>> main
         </Routes>
       </div>
     </BrowserRouter>
