@@ -3,6 +3,7 @@ import Home from "./pages/home/Home";
 import Header from "./shared/component/header";
 import DetailPage from "./pages/detailPage/DetailPage";
 import FocusPage from "./pages/focusPage/FocusPage";
+import TodayHabits from "./pages/habits/todayHabits";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/detailPage" element={<DetailPage />} />
           <Route path="/focusPage" element={<FocusPage />} />
+          <Route path="/todayhabits" element={<TodayHabits />} />
         </Routes>
       </div>
     </BrowserRouter>

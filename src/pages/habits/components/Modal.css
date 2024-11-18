@@ -1,0 +1,137 @@
+@font-face {
+  font-family: "jejudo";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 10px;
+  width: 648px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: hidden; /* 스크롤 제거 */
+  max-height: 90vh; /* 화면 높이에 맞춤 */
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: visible; /* 스크롤 제거 */
+}
+
+.modal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: red;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  color: darkred;
+}
+
+.add-habit {
+  display: flex;
+  margin-top: 10px;
+}
+
+.modal-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.add-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cancel-button,
+.confirm-button {
+  padding: 10px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.cancel-button {
+  font-family: "jejudo";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27.65px;
+  width: 288px;
+  height: 58px;
+  background-color: #DDDDDD;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #bbb;
+}
+
+.confirm-button {
+  font-family: "jejudo";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27.65px;
+  width: 288px;
+  height: 58px;
+  background-color: #99C08E;
+  color: white;
+}
+
+.confirm-button:hover {
+  background-color: #45a049;
+}
