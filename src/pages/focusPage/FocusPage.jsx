@@ -1,9 +1,18 @@
 import FocusTopTitle from "./focusComponents/FocusTopTitle";
 import FocusPointContainer from "./focusComponents/FocusPointContainer";
-import FocusTimer from "./focusComponents/FocusTimer";
+import TodayFocus from "./focusComponents/TodayFocus";
 import "./FocusPage.css";
+import { useState } from "react";
 
 function FocusPage() {
+  // 타이머 상태
+  const [timerState, setTimerState] = useState(""); // running, pause, over, editing, done
+  // 초기 설정 시간
+  const [initialMin, setInitialMin] = useState(0);
+  const [initialSec, setInitialSec] = useState(0);
+
+  const point = Math.floor((initialMin * 60 + initialSec) / 600 + 3);
+
   return (
     <div className="wrap">
       <div className="focusWrap">
@@ -18,14 +27,28 @@ function FocusPage() {
             </div>
           </div>
           <div className="focusMainWrap">
-            <div className="focusMainContainer">
-              <div className="focusMainTitle">오늘의 집중</div>
-              {/* 타이머 자리 */}
-              <FocusTimer />
-            </div>
+            <TodayFocus
+              timerState={timerState}
+              setTimerState={setTimerState}
+              initialMin={initialMin}
+              setInitialMin={setInitialMin}
+              initialSec={initialSec}
+              setInitialSec={setInitialSec}
+            />
           </div>
         </div>
       </div>
+      {timerState === "pause" ? (
+        <div className="focusMessage pauseMessage">
+          <div> 🚨 집중이 중단되었습니다.</div>
+        </div>
+      ) : timerState === "done" ? (
+        <div className="focusMessage doneMessage">
+          <div> 🎉 {point}포인트 획득.</div>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }
