@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import "../css/Layout.css";
 
-export default function Layout({ children, paddingBottom }) {
+export default function Layout({ children, paddingBottom, paddingTop }) {
   return (
-    <div id="layout" style={{ paddingBottom }}>
+    <div id="layout" style={{ paddingBottom, paddingTop }}>
       {children}
     </div>
   );
