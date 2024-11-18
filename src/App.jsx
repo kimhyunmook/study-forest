@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
-import Header from "./shared/component/header";
+import Header from "./shared/components/header";
 import DetailPage from "./pages/detailPage/DetailPage";
 import FocusPage from "./pages/focusPage/FocusPage";
 

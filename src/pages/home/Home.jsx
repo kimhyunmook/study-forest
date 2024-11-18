@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Cards, { Card } from "./components/Card";
-import Layout, { WhiteContainer } from "../../shared/component/Layout";
+import Layout, { WhiteContainer } from "../../shared/components/Layout";
 import SearchBox from "./components/Search";
 import "./css/home.css";
 import { getLatestStudyApi, getStudyListApi } from "./api/homeApi";
@@ -37,7 +37,7 @@ export default function Home() {
   }, []);
   useEffect(() => {
     let body = {
-      id: latest,
+      id: [...latest].reverse(),
     };
     getLatestStudyApi(body).then((res) => {
       setStudyLook(res.data);

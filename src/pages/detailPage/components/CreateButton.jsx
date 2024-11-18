@@ -1,7 +1,7 @@
 import { CreateButtonModal } from "./CreateButtonModal";
 import { useState } from "react";
 import { createStudy } from "../api/createStudy";
-import { Button } from "../../../shared/component/Layout";
+import { Button } from "../../../shared/components/Layout";
 
 export function CreateButton({
   nickName,
