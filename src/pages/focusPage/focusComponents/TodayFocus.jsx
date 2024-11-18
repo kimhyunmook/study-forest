@@ -137,6 +137,13 @@ function TodayFocus({
     <div className="focusMainContainer">
       <div className="focusMainTitle">
         <div>오늘의 집중</div>
+        {!isStart ? (
+          <div className="timerDescription">
+            타이머를 클릭하여 시간을 설정해주세요!
+          </div>
+        ) : (
+          <div></div>
+        )}
         {isStart ? (
           <InitialTimer initialMin={initialMin} initialSec={initialSec} />
         ) : (
