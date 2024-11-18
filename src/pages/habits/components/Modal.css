@@ -61,12 +61,31 @@
 }
 
 .habit-text {
-  flex: 1; /* 텍스트가 가능한 공간을 차지하도록 설정 */
-  text-align: left; /* 텍스트 정렬 */
+  flex: 1; 
+  text-align: center; 
   font-size: 16px;
-  color: #555;
-  word-break: break-word; /* 긴 텍스트 줄바꿈 처리 */
+  color: #818181;
+  word-break: break-word; 
+  vertical-align: middle;
 }
+
+
+.delete-button {
+  background: none; /* 배경 제거 */
+  border: none; /* 테두리 제거 */
+  padding: 5px; /* 버튼 여백 */
+  cursor: pointer; /* 마우스 포인터 변경 */
+  display: flex; /* Flexbox로 정렬 */
+  align-items: center; /* 아이콘 세로 중앙 정렬 */
+  justify-content: center; /* 아이콘 가로 중앙 정렬 */
+}
+
+.delete-icon {
+  width: 48px; /* 아이콘 너비 */
+  height: 48px; /* 아이콘 높이 */
+  object-fit: contain; /* 아이콘 비율 유지 */
+}
+
 
 .add-habit {
   display: flex;

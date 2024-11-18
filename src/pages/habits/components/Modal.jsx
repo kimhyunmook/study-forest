@@ -26,7 +26,7 @@ const Modal = ({ habits, onUpdate, onClose }) => {
         <ul className="modal-list">
           {habits.map((habit, index) => (
             <li key={index} className="modal-item">
-              <span>{habit}</span>
+              <span className="habit-text">{habit}</span>
               <button
                 className="delete-button"
                 onClick={() => handleDeleteHabit(index)}
