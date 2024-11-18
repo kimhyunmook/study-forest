@@ -10,21 +10,22 @@ import { CreateButton } from "./components/CreateButton";
 function DetailPage() {
   const [nickName, setNickName] = useState(""); //닉네임
   const [studyName, setStudyName] = useState(""); //스터디 이름
-  const [intro, setIntro] = useState(""); // 소개
+  const [introduce, setIntroduce] = useState(""); // 소개
   const [password, setPassword] = useState(""); //패스워드
   const [rePassword, setRePassword] = useState(""); //패스워드 확인
 
-  const [isTouched, setIsTouched] = useState(false);
-  const [background, setBackground] = useState();
+  const [isTouched, setIsTouched] = useState(false); // 스터디 input에 focus되어있는지 체크
+  const [background, setBackground] = useState(); //배경사진
 
   //패스워드 type변경
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [isPasswordConfirmVisible, setIsPasswordConfirmVisible] = useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false); //비밀번호 
+  const [isPasswordConfirmVisible, setIsPasswordConfirmVisible] = useState(false); //비밀번호 확인
 
+  //비밀번호 타입변경
   const handlePasswordToggle = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
-
+  //비밀번호확인 타입변경 
   const handlePasswordConfirmToggle = () => {
     setIsPasswordConfirmVisible(!isPasswordConfirmVisible);
   };
@@ -41,7 +42,7 @@ function DetailPage() {
           isTouched={isTouched}
           setIsTouched={setIsTouched}
         />
-        <IntroInput intro={intro} setIntro={setIntro} />
+        <IntroInput introduce={introduce} setIntroduce={setIntroduce} />
         <BackgroundImageSelect background={background} setBackground={setBackground} />
         <PasswordInput
           password={password}
@@ -59,7 +60,7 @@ function DetailPage() {
         <CreateButton
           nickName={nickName}
           studyName={studyName}
-          IntroInput intro={intro}
+          introduce={introduce}
           background={background}
           password={password}
           rePassword={rePassword}

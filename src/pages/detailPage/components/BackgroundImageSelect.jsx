@@ -14,7 +14,7 @@ export function BackgroundImageSelect({ background, setBackground }) {
                 {backgroundImages.map((image, index) => (
                     <div
                         className="detail-page-background-imgChoice-img"
-                        value={index + 1}
+                        value={image.value}
                         onClick={() => {
                             setBackground(image.value);
                         }}
