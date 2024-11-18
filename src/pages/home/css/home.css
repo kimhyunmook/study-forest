@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   padding: 12px 20px;
+  padding-right: 5px;
   border: 1px solid #ddd;
   width: 335px;
   height: 42px;
@@ -18,10 +19,6 @@
   outline: none;
   height: 100%;
   width: 100%;
-}
-.searchArea .inputBox a {
-  display: block;
-  margin-right: 10px;
 }
 
 .orderBy {
@@ -51,4 +48,13 @@
   font-weight: 500;
   color: var(--green_text_578246);
   display: block;
+}
+.icSearch {
+  display: flex;
+}
+.icSearch.on {
+  order: 2;
+}
+.icSearch label {
+  margin-right: 10px;
 }
