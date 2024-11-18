@@ -5,7 +5,7 @@ function FocusPointContainer() {
     <div className="focusPointCon">
       <img
         src={`${process.env.PUBLIC_URL}/img/ic_point.png`}
-        art="pointImg"
+        alt="pointImg"
         className="focusPointImg"
       />
       <div className="focusPointFont">310P 획득</div>

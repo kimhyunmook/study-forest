@@ -1,0 +1,17 @@
+.InitialTimerBox {
+  border: 1px solid #0000001a;
+  border-radius: 50px;
+  padding: 6px 8px 6px 8px;
+  gap: 8px;
+}
+
+.InitialTimerCon {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.timerIcon {
+  width: 19px;
+  height: 19px;
+}
