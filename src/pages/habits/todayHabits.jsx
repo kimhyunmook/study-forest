@@ -19,7 +19,7 @@ const TodayHabits = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <Layout paddingBottom={"100px"}>
+    <Layout paddingBottom={"100px"} width={"1248px"}>
       <div className="today-habits">
         <Header />
         {/* HabitsList 내에서 버튼 처리 */}
