@@ -3,8 +3,7 @@ import Header from "./components/Header";
 import HabitsList from "./components/HabitList";
 import Modal from "./components/Modal";
 import "./todayHabits.css";
-
-
+import Layout from "../../shared/components/Layout";
 
 const TodayHabits = () => {
   const [habits, setHabits] = useState([
@@ -20,21 +19,23 @@ const TodayHabits = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="today-habits">
-      <Header />
-      {/* HabitsList 내에서 버튼 처리 */}
-      <HabitsList
-        habits={habits}
-        onEdit={() => setIsModalOpen(true)} // Modal 열기 함수 전달
-      />
-      {isModalOpen && (
-        <Modal
+    <Layout paddingBottom={"100px"}>
+      <div className="today-habits">
+        <Header />
+        {/* HabitsList 내에서 버튼 처리 */}
+        <HabitsList
           habits={habits}
-          onUpdate={(updatedHabits) => setHabits(updatedHabits)}
-          onClose={() => setIsModalOpen(false)}
+          onEdit={() => setIsModalOpen(true)} // Modal 열기 함수 전달
         />
-      )}
-    </div>
+        {isModalOpen && (
+          <Modal
+            habits={habits}
+            onUpdate={(updatedHabits) => setHabits(updatedHabits)}
+            onClose={() => setIsModalOpen(false)}
+          />
+        )}
+      </div>
+    </Layout>
   );
 };
 
