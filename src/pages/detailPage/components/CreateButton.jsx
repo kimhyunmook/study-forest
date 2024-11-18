@@ -64,9 +64,9 @@ export function CreateButton({
           만들기
         </Button>
         {/* <img
-          src={`${process.env.PUBLIC_URL}/img/DetailPage_button.png`}
-          alt="button"
-        /> */}
+                    src={`${process.env.PUBLIC_URL}/img/DetailPage_button.png`}
+                    alt="button"
+                /> */}
       </div>
       <CreateButtonModal
         message={alertMessage}

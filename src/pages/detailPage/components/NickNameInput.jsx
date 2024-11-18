@@ -1,5 +1,4 @@
 export function NickNameInput({ nickName, setNickName }) {
-
     return (
         <div className="detail-page-op">
             <div className="detail-page-nickname">닉네임</div>
