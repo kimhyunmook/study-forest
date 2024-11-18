@@ -5,16 +5,30 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local("Pretendard Regular"),
+    url(./font/Pretendard-Regular.woff2) format("woff2"),
+    url(./font/Pretendard-Regular.woff) format("woff");
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Pretendard";
 }
 li {
   list-style: none;
 }
 a {
   text-decoration: none;
+}
+button {
+  border: 0;
+  outline: 0;
 }
 
 :root {
@@ -33,16 +47,19 @@ a {
   --green_e1edde: #e1edde;
   --yellow_fff1cc: #fff1cc;
   --blue_e0f1f5: #e0f1f5;
-  --pink_fde0e9: fde0e9;
+  --pink_fde0e9: #fde0e9;
 
   --green_text_578246: #578246;
   --yellow_text_c18e1b: #c18e1b;
   --blue_text_418099: #418099;
   --pink_text_bc3c6a: #bc3c6a;
 }
-.jejodo {
+.jejudo {
   font-family: jejudo;
+  text-shadow: 0px -2px 0px rgba(0, 0, 0, 0.4);
+  color: #fff;
 }
+
 header {
   width: 100%;
   height: 100px;
@@ -59,16 +76,4 @@ header .gnb {
 #container {
   min-height: 100vh;
   background-color: var(--bg_f6f4ef);
-}
-.studyCreateBtn {
-  width: 252px;
-  height: 54px;
-  text-align: center;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 15px;
-  background-color: var(--brand_99c08e);
-  text-shadow: 1px -1.5px 1px rgba(0, 0, 0, 0.5);
 }

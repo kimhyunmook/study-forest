@@ -1,0 +1,70 @@
+
+/* 습관 리스트 섹션 */
+.habits-list {
+  display: flex; /* 플렉스 박스 활성화 */
+  flex-direction: column; /* 세로 정렬 */
+  align-items: center; /* 가로 중앙 정렬 */
+  justify-content: center; /* 세로 중앙 정렬 */
+  padding: 20px;
+  border: 1px solid #DDDDDD; /* 테두리 추가 */
+  width: 1168px;
+  min-height: 631px;
+  background-color: white;
+  border-radius: 20px;
+  margin: 20px auto; /* 수평 중앙 정렬 */
+}
+
+.habits-list h2 {
+  font-size: 20px;
+}
+
+.habit-item {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  width: 400px;
+  height: 54px;
+  background-color: #99C08E;
+  color: #ffffff;
+  margin: 10px 0; /* 목록 간격 */
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+
+.habits-list {
+  border: 1px solid #DDDDDD; /* 회색 테두리 */
+}
+
+.habits-header {
+  display: flex; /* Flexbox 활성화 */
+  justify-content: space-between; /* 제목 왼쪽, 버튼 오른쪽 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  margin-bottom: 20px; /* 아래 간격 */
+  width: 100%; /* 전체 너비 사용 */
+}
+
+.habit-title {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 28.64px;
+  margin-left: 510px; /* 제목 주변 여백 제거 */
+}
+
+.edit-button {
+  padding: 8px 16px; /* 버튼 크기 조정 */
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #818181;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 361px;
+}
+
+
+.edit-button:hover {
+  color: #000; /* 마우스 오버 시 색상 변경 */
+}
