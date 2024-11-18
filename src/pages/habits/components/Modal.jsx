@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Modal.css";
+import DeleteIcon from "../icons/btn_determinate.png"
 
 const Modal = ({ habits, onUpdate, onClose }) => {
   const [newHabit, setNewHabit] = useState("");
@@ -30,7 +31,7 @@ const Modal = ({ habits, onUpdate, onClose }) => {
                 className="delete-button"
                 onClick={() => handleDeleteHabit(index)}
               >
-                🗑️
+                <img src={DeleteIcon} alt="삭제" className="delete-icon"></img>
               </button>
             </li>
           ))}
