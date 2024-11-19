@@ -97,7 +97,6 @@
 }
 
 
-
 .detail-page-password {
     font-size: 18px;
     font-weight: 600;
@@ -111,7 +110,6 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-
 }
 
 .detail-page-password-typeChange-icon {
@@ -220,4 +218,5 @@
     font-weight: 800;
     line-height: 19.09px;
     z-index: 3;
+
 }

@@ -7,7 +7,7 @@ export default function Header() {
         <Link to="/">
           <img src="/img/img_logo.svg" alt="로고" />
         </Link>
-        <Button to={"/DetailPage"} width={"254px"} height={"54px"}>
+        <Button to={"/detail"} width={"254px"} height={"50px"}>
           스터디 만들기
         </Button>
       </div>

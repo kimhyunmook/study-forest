@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: #414141;
+}
+
+.logo img {
+  width: 150px;
+}
+
+header .nav-button {
+  border: 1px solid #DDDDDD;
+  color: #DDDDDD;
+  padding: 10px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  
+}
+
+.header-left {
+  font-family: 'Pretendard';
+  font-size: 18px;
+  text-align: left;
+  color: #818181;
+}
+
+.time {
+  margin-top: 8px;
+  margin-bottom: 24px;
+
+}
+
+.header-right {
+  margin-bottom: 104px;
+  border: 1px solid #DDDDDD;
+  display: flex;
+  gap: 16px;
+  border: none;
+}
+
+.studyname {
+  color: #414141
+}

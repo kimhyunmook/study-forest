@@ -1,0 +1,17 @@
+.timerDiv {
+  font-size: 150px;
+  font-weight: 800;
+  line-height: 179px;
+}
+
+.timerInput {
+  font-size: 150px;
+  font-weight: 800;
+  line-height: 179px;
+  color: #414141;
+  width: 400px;
+  height: 200px;
+  text-align: center;
+  border: none;
+  outline: none;
+}
