@@ -19,7 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     getStudyListApi(page, pageSize, orderBy, keyword).then((res) => {
-      setStudy(res.data);
+      setStudy([...res.data]);
     });
   }, [pageSize, orderBy]);
 
@@ -40,12 +40,12 @@ export default function Home() {
       id: [...latest].reverse(),
     };
     getLatestStudyApi(body).then((res) => {
-      setStudyLook(res.data);
+      setStudyLook([...res.data]);
     });
   }, [cok]);
 
   return (
-    <Layout paddingBottom={"174px"} paddingTop={"40px"}>
+    <Layout paddingBottom={"174px"} paddingTop={"40px"} width={"1200px"}>
       <WhiteContainer
         className=""
         title={"최근 조회한 스터디"}
@@ -98,9 +98,9 @@ export default function Home() {
                 end: 1,
               });
 
-              // setTimeout(() => {
-              //   navigate(`/study/${v.id}`);
-              // }, 500);
+              setTimeout(() => {
+                navigate(`/study/${v.id}`);
+              }, 500);
             }
             let mbn = "";
             if (i < study.length - 3) mbn = "mbn";

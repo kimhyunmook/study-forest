@@ -1,6 +1,5 @@
 import "../css/Card.css";
 import { Link, useNavigate } from "react-router-dom";
-import { setCookie } from "../../../shared/hook/hook";
 import { useState } from "react";
 
 export function Card({
@@ -15,7 +14,6 @@ export function Card({
   to = "",
   onClick,
 }) {
-  const navigate = useNavigate();
   const [arr, setArr] = useState([]);
   const [max1, max2] = [18, 45];
   function textSlice(text = "", maxLength = 0) {
