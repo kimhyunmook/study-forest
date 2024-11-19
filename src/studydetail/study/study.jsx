@@ -45,7 +45,7 @@ function  studyPage() {
 
 /*연우의 개발공장 팝업창*/
       </div>
-      <div>
+      <div>modal
         <div>연우의 개발공장</div>
         <div>나가기 버튼 이미지</div>
       </div>
