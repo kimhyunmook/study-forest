@@ -50,8 +50,9 @@ function  studyPage() {
         <div>나가기</div>
       </div>
       <div>권한이 필요해요!</div>
-      <div>비밀번호</div>
-      
+      <div>비밀번호 input</div>
+      <a>수정하러가기 이미지</a>
+
       
       
     </div>
@@ -59,3 +60,4 @@ function  studyPage() {
 }
 
 export default studyPage;
+
