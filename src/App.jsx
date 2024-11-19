@@ -5,6 +5,7 @@ import DetailPage from "./pages/detailPage/DetailPage";
 import FocusPage from "./pages/focusPage/FocusPage";
 import TodayHabits from "./pages/habits/todayHabits";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} /> 
           <Route path="/detailPage" element={<DetailPage />} />
           <Route path="/focusPage" element={<FocusPage />} />
+          <Route path="/" element={<Home />} />
           <Route path="/todayhabits" element={<TodayHabits />} />
           <Route path="/detail" element={<DetailPage />} />
           <Route path="/focus" element={<FocusPage />} />

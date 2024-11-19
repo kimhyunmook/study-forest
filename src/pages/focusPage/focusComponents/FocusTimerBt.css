@@ -1,0 +1,73 @@
+.timerStartBt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 333px;
+  height: 60px;
+  border-radius: 50px;
+  border: 0;
+  background-color: #99c08e;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 33.41px;
+  box-shadow: 0 6px 0 #578246, 0 8px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.timerStartBt:active {
+  box-shadow: none; /* 눌렀을 때 그림자 제거 */
+  transform: translateY(6px); /* 눌렀을 때 버튼 위치 변경 */
+}
+.timerBtContents {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.focusStartBtImg {
+  width: 44px;
+  height: 44px;
+}
+
+.timerBtCon {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.focusPauseBtImg {
+  width: 35.2px;
+  height: 35.2px;
+}
+
+.timerSideBt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
+  border: 0;
+
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+.timerSideBt:active {
+  box-shadow: none; /* 눌렀을 때 그림자 제거 */
+  transform: translateY(6px); /* 눌렀을 때 버튼 위치 변경 */
+}
+.pause {
+  background-color: #578246;
+  box-shadow: 0 6px 0 #99c08e, 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.running {
+  background-color: #818181;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.restart {
+  background-color: #99c08e;
+  box-shadow: 0 6px 0 #578246, 0 8px 15px rgba(0, 0, 0, 0.2);
+}

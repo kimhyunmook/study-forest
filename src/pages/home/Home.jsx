@@ -45,7 +45,7 @@ export default function Home() {
   }, [cok]);
 
   return (
-    <Layout paddingBottom={"174px"}>
+    <Layout paddingBottom={"174px"} paddingTop={"40px"}>
       <WhiteContainer
         className=""
         title={"최근 조회한 스터디"}
