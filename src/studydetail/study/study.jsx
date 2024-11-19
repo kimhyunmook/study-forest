@@ -47,7 +47,7 @@ function  studyPage() {
       </div>
       <div>
         <div>연우의 개발공장</div>
-        <div>나가기</div>
+        <div>나가기 버튼 이미지</div>
       </div>
       <div>권한이 필요해요!</div>
       <div>비밀번호 input</div>
