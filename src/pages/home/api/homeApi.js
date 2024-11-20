@@ -28,7 +28,7 @@ export async function getLatestStudyApi(body) {
 
 export async function emojiApi(body) {
   try {
-    const response = await instance.post("/", body);
+    const response = await instance.post("/api/home/emojis", body);
     return response.data;
   } catch (err) {
     console.error(err);
