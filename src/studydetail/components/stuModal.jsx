@@ -19,7 +19,7 @@ function modal() {
       width: "648px",
       height: "369px",
       top: "344px",
-      left: "636px"
+      left: "636px",
       borderRadius: "20px",
       boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
       padding: "20px",
