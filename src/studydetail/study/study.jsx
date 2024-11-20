@@ -33,6 +33,7 @@ function  studyPage() {
           <div>310P 획득??? / 포인트 획득 API? </div>
         </div>
         <div className="habbit-box">세번째 박스
+          {/* 데이터 불러오면 삭제처리 할 예정 */}
           <div className="habit-record-box">습관 기록표</div>
           <div className="third-box-font">월 화 수 목 금 토 일</div>
           <div className="third-box-font">미라클 모닝</div>
@@ -42,8 +43,16 @@ function  studyPage() {
           <div className="third-box-font">사이드 프로젝트</div>
           <div className="third-box-font">물 2L 마시기</div>
         </div>
+        {/* 습관 기록표에 습관이 없을 경우 */}
+        <div>
+          <div className="habit-record-box">습관 기록표</div>
+          <div className="notyet-habit">
+            아직 습관이 없어요<br/>
+            오늘의 습관에서 습관을 생성해보세요
+          </div>
+        </div>
 
-/*연우의 개발공장 팝업창*/
+      {/*연우의 개발공장 모달창*/}
       </div>
       <div>modal
         <div>연우의 개발공장</div>
@@ -51,7 +60,9 @@ function  studyPage() {
       </div>
       <div>권한이 필요해요!</div>
       <div>비밀번호 input</div>
-      <a>수정하러가기 이미지</a>
+      <img>수정하러가기 이미지</img>
+      <img>오늘의 습관으로 가기</img>
+      <img>오늘의 집중으로 가기</img>
 
       
       

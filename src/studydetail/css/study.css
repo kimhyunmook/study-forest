@@ -102,6 +102,16 @@
   align-items: right;
 }
 
+.notyet-habit {
+  font-family: Pretendard-Regular;
+  font-weight: 500px;
+  font-size: 16px;
+  line-height: 19.08px;
+  display: flex;
+  align-items: center;
+  color: #818181; 
+}
+
 .third-box {
 
 }

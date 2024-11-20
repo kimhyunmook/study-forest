@@ -16,12 +16,14 @@ function modal() {
       backgroundColor: "rgba(0, 0, 0, 0.5)",
     },
     content: {
-      width: "300px",
-      height: "400px",
-      margin: "auto",
-      borderRadius: "4px",
+      width: "648px",
+      height: "369px",
+      top: "344px",
+      left: "636px"
+      borderRadius: "20px",
       boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
       padding: "20px",
+      
     }
   }
 }
