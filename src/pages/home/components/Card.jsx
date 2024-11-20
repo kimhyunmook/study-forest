@@ -1,6 +1,5 @@
 import "../css/Card.css";
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { emojiApi } from "../api/homeApi";
 
 export function Card({
   type = "",
@@ -11,10 +10,8 @@ export function Card({
   inProgress = 0,
   children,
   className = "",
-  to = "",
   onClick,
 }) {
-  const [arr, setArr] = useState([]);
   const [max1, max2] = [18, 45];
   function textSlice(text = "", maxLength = 0) {
     return text.length > maxLength
@@ -26,6 +23,10 @@ export function Card({
     const createDay = new Date(date);
     const inProgress = today.getDate() - createDay.getDate();
     return inProgress;
+  }
+  function emojiHandle(v) {
+    console.log(v);
+    // emojiApi();
   }
 
   return (
@@ -46,10 +47,16 @@ export function Card({
           <p className="inProgress">{dayCalculator(inProgress)}일째 진행 중</p>
           <p className="content">{textSlice(children, max2)}</p>
         </button>
-        <div className="emojis">
+        <div className={emoji.length > 6 ? "emojis scroll" : "emojis"}>
           {emoji.map((v, index) => {
             return (
-              <div className="emoji" key={index}>
+              <div
+                className="emoji"
+                key={index}
+                onClick={() => {
+                  emojiHandle(v);
+                }}
+              >
                 <p className="emojiType">{v.emojiIcon}</p>
                 <p>{v.value}</p>
               </div>

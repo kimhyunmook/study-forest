@@ -31,6 +31,7 @@ export default function SearchBox({ selectValue, inputValue, searchHandle }) {
           name="searchBar"
           type="text"
           onChange={inputHandle}
+          onKeyDown={searchHandle}
           onFocus={focus}
           onBlur={blur}
           placeholder="검색"

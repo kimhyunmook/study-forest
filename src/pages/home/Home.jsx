@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Cards, { Card } from "./components/Card";
+import Loading from "../../shared/components/Loading";
 import Layout, { WhiteContainer } from "../../shared/components/Layout";
 import SearchBox from "./components/Search";
 import "./css/home.css";
@@ -15,37 +16,69 @@ export default function Home() {
   const [pageSize, setPageSize] = useState(6);
   const [orderBy, setOrderBy] = useState("desc"); //asc
   const [keyword, setKeyword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [cardLoading, setCardLoading] = useState(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    getStudyListApi(page, pageSize, orderBy, keyword).then((res) => {
-      setStudy([...res.data]);
-    });
-  }, [pageSize, orderBy]);
-
-  const moreBtnHandle = (e) => {
-    e.preventDefault();
-    setPageSize(pageSize + 6);
-  };
-  const searchHandle = (e) => e.preventDefault();
   const latest = setCookie("get", {
     cookieName: "studyLook",
   });
 
-  useEffect(() => {
-    setCok([...latest]);
-  }, []);
-  useEffect(() => {
+  function API(callBack = () => {}) {
+    getStudyListApi(page, pageSize, orderBy, keyword).then((res) => {
+      setStudy([...res.data]);
+      setCok([...latest]);
+      callBack();
+    });
     let body = {
       id: [...latest].reverse(),
     };
     getLatestStudyApi(body).then((res) => {
       setStudyLook([...res.data]);
     });
-  }, [cok]);
+  }
+  useEffect(() => {
+    setCardLoading(true);
+    setTimeout(() => {
+      API(() => {
+        setCardLoading(false);
+      });
+    }, 2000);
+  }, [pageSize, orderBy]);
 
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      API(() => {
+        setLoading(false);
+        setCardLoading(false);
+      });
+    }, 3500);
+  }, []);
+
+  const moreBtnHandle = (e) => {
+    e.preventDefault();
+    setPageSize(pageSize + 6);
+  };
+  const searchHandle = (e) => {
+    if (e.keyCode === 13 || e._reactName === "onClick") {
+      setCardLoading(true);
+
+      setTimeout(() => {
+        getStudyListApi(1, 6, "desc", keyword).then((res) => {
+          setStudy([...res.data]);
+          setCardLoading(false);
+        });
+      }, 2000);
+    }
+  };
+  const cardLink = (id, time = 0) => {
+    setTimeout(() => {
+      navigate(`/study/${id}`);
+    }, time);
+  };
   return (
     <Layout paddingBottom={"174px"} paddingTop={"40px"} width={"1200px"}>
+      <Loading loading={loading} />
       <WhiteContainer
         className=""
         title={"최근 조회한 스터디"}
@@ -63,7 +96,9 @@ export default function Home() {
                 inProgress={v.createdAt}
                 userName={v.nickName}
                 name={v.studyName}
-                to={v.id}
+                onClick={() => {
+                  cardLink(v.id);
+                }}
               >
                 {v.introduce}
               </Card>
@@ -85,6 +120,15 @@ export default function Home() {
           noList="아직 둘러 볼 스터디가 없어요"
           height={!!!study.length ? "600px" : "auto"}
         >
+          <Loading
+            loading={cardLoading}
+            style={{
+              position: "absolute",
+              height: "100%",
+              background: "#fff",
+              zIndex: 98,
+            }}
+          />
           {study.map((v, i) => {
             function details(e) {
               e.preventDefault();
@@ -98,15 +142,12 @@ export default function Home() {
                 end: 1,
               });
 
-              setTimeout(() => {
-                navigate(`/study/${v.id}`);
-              }, 500);
+              cardLink(v.id);
             }
             let mbn = "";
             if (i < study.length - 3) mbn = "mbn";
             return (
               <Card
-                to={v.id}
                 onClick={details}
                 key={i}
                 type={v.background}
