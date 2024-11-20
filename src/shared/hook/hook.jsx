@@ -26,7 +26,8 @@ export function setCookie(
       Cookies.set(cookieName, JSON.stringify(cookieValue), { expires: end });
       break;
     case "get":
-      if (!!!cookieName) throw console.error("useCookie empty Error");
+      if (!!!cookieName)
+        throw console.error("useCookie cookieName을 입력하세요.");
       if (!!Cookies.get(cookieName)) return JSON.parse(Cookies.get(cookieName));
       return "";
   }

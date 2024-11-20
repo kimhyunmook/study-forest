@@ -1,0 +1,107 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.study-page-contain {
+  background-color: white;
+
+}
+
+.emote-box {
+  width: 1120px;
+  height: 31px;
+}
+
+.introduce-box {
+  width: 1120px;
+  height: 203px;
+}
+
+.habbit-box {
+  width: 1120px;
+  height: 511px;
+  border-radius: 20px;
+  border: 1px;
+  padding: 24px;
+  gap: 10px;
+}
+
+.first-box {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.second-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.today-box {
+  width: 144px;
+  height: 48px;
+  border-radius: 15px;
+  border: 1px;
+  border-color: #ffffff;
+}
+
+.share-fix-font {
+  color: #578246;
+  font-family: Pretendard-Regular;
+  font-weight: 500px;
+  font-size: 16px;
+  align-items: center;
+}
+.study-delete-font {
+  color: #818181;
+  font-family: Pretendard-Regular;
+  font-weight: 500px;
+  font-size: 18px;
+  align-items: center;
+}
+
+.now-point {
+  font-family: Pretendard-Regular;
+  font-weight: 400px;
+  font-size: 18px;
+  color: #818181;
+}
+
+.introduce-font {
+  font-family: Pretendard-Regular;
+  font-weight: 400px;
+  font-size: 18px;
+  color: #818181;
+}
+
+.UserName {
+  font-family: Pretendard-Regular;
+  font-weight: 800px;
+  font-size: 32px;
+  color: #414141;
+
+}
+
+.habit-record-box {
+  font-family: Pretendard-Regular;
+  font-weight: 800px;
+  font-size: 24px;
+  align-items: right;
+}
+
+.third-box-font {
+  font-family: Pretendard-Regular;
+  font-weight: 700px;
+  font-size: 18px;
+  align-items: right;
+}
+
+.third-box {
+
+}
