@@ -1,19 +1,26 @@
+import React, { useState } from "react";
 
-const [imageSrc, setImageSrc] = useState("이미지경로");
-const [isClicked, setClicked] = useState(false);
+function CheckboxImage() {
+  const [isActive, setIsActive] = useState(false); // 활성화 상태 관리
 
-const handleClick = () => {
-  if (isClicked) {
-    setImageSrc("이미지경로");
-      setIsClicked(false); //초기 상태 false 일 땐 초기 상태 이미지 
-  } else {
-    setImageSrc("이미지경로")
-    setIsClicked(true); //true 일때 변경될 이미지 src
-  }
-};
+  const handleToggle = () => {
+    setIsActive((prev) => !prev); // 이전 상태를 반전
+  };
 
-return (
-  <Image src={imageSrc} onClick={handleClick}/>
-);
+  const imageSrc = isActive
+    ? "활성화된_이미지경로" // 활성화 상태의 이미지
+    : "비활성화된_이미지경로"; // 비활성화 상태의 이미지
 
-export default handleClick;
+  return (
+    <div>
+      <img 
+        src={imageSrc} 
+        alt={isActive ? "활성화 이미지" : "비활성화 이미지"} 
+        onClick={handleToggle} 
+        style={{ cursor: "pointer" }} // 클릭 가능한 UI로 시각적 피드백
+      />
+    </div>
+  );
+}
+
+export default CheckboxImage;

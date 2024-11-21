@@ -1,35 +1,19 @@
-
 import React, { useState } from "react";
-import {View , TextInput, StyleSheet} from "react-native";
+import { View, TextInput } from "react-native";
 
-export const MyInput = () => {
-  const [text, setText] = useState('');
+export const IntroduceInput = () => {
+  const [text, setText] = useState(""); // 상태 관리
 
-  const onChangeText = (inputText) => {
-    setText(inputText);
-  };
   return (
-    <view style={style.container}>
+    <View>
       <TextInput
-        onchangeText={onchangeText}
-        value={text}
-        placeholder="소개를 입력해주세요."
-        style={StyleSheet.input}/>
-    </view>
+        onChangeText={setText} // 상태 업데이트
+        value={text} // 상태 연결
+        placeholder="소개를 입력해주세요." // 플레이스홀더 텍스트
+        multiline // 여러 줄 입력 허용
+      />
+    </View>
   );
 };
 
-const style = StyleSheet.creat({
-  container: {
-    paddingHorizontal: 16,
-    paddingTop: 16,
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    paddingHorizontal: 8,
-  },
-});
-
-export default Myinput;
+export default IntroduceInput;

@@ -112,6 +112,9 @@
   color: #818181; 
 }
 
-.third-box {
-
+.wrong-password {
+  font-family: Pretendard-Regular;
+  font-weight: 500px;
+  font-size: 16px;
+  color: #F50E0E;
 }
