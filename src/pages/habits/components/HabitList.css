@@ -19,20 +19,26 @@
 }
 
 .habit-item {
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
   width: 400px;
   height: 54px;
-  background-color: #99C08E;
-  color: #ffffff;
-  margin: 10px 0; /* 목록 간격 */
-  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee; /* 기본 배경색 */
+  color: #818181; /* 기본 텍스트 색상 */
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
   font-size: 16px;
-  font-weight: 700;
-  text-align: center;
+  font-weight: bold;
+  cursor: pointer; /* 클릭 가능하도록 포인터 */
+  transition: background-color 0.3s, color 0.3s; /* 부드러운 전환 */
 }
 
+.habit-item.selected {
+  background-color: #99c08e; /* 클릭된 상태 배경색 */
+  color: #ffffff; /* 클릭된 상태 텍스트 색상 */
+}
 
 .habits-list {
   border: 1px solid #DDDDDD; /* 회색 테두리 */
