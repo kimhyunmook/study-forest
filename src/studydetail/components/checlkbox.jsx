@@ -15,3 +15,5 @@ const handleClick = () => {
 return (
   <Image src={imageSrc} onClick={handleClick}/>
 );
+
+export default handleClick;
