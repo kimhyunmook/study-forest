@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EmojiPicker from "emoji-picker-react"; // emoji.jsx
-import IntroduceInput from "./introduce"; // introduce.jsx
-import CheckboxImage from "./checkbox"; // checkbox.jsx
+import IntroduceInput from "../components/introduce"; // introduce.jsx
+import CheckboxImage from "../components/checkbox"; // checkbox.jsx
 import Modal from "react-modal"; // stuModal.jsx
 
 function StudyPage() {

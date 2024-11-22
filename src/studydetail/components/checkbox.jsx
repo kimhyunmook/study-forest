@@ -8,7 +8,7 @@ function CheckboxImage() {
   };
 
   const imageSrc = isActive
-    ? "활성화된_이미지경로" // 활성화 상태의 이미지
+    ? "활성화된_이미지경로" // 활성화 상태의 이미지..
     : "비활성화된_이미지경로"; // 비활성화 상태의 이미지
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput } from "react-native";
+import { View, TextInput } from "react";
 
 export const IntroduceInput = () => {
   const [text, setText] = useState(""); // 상태 관리
