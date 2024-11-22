@@ -1,6 +1,7 @@
 import "./FocusPointContainer.css";
 
-function FocusPointContainer() {
+function FocusPointContainer({ studyInfo }) {
+  const point = studyInfo.point;
   return (
     <div className="focusPointCon">
       <img
@@ -8,7 +9,7 @@ function FocusPointContainer() {
         alt="pointImg"
         className="focusPointImg"
       />
-      <div className="focusPointFont">310P 획득</div>
+      <div className="focusPointFont">{point}P 획득</div>
     </div>
   );
 }
