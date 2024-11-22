@@ -13,8 +13,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/detailPage" element={<DetailPage />} />
-          <Route path="/focusPage" element={<FocusPage />} />
           <Route path="/study/:id/todayhabits" element={<TodayHabits />} />
           <Route path="/detail" element={<DetailPage />} />
           <Route path="/study/:id/focus" element={<FocusPage />} />

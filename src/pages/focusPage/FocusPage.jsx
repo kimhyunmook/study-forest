@@ -21,7 +21,8 @@ function FocusPage() {
   const { id } = useParams();
 
   // 점수 계산
-  const newPoint = Math.floor((initialMin * 60 + initialSec) / 600 + 3);
+  const newPoint =
+    initialMin > 30 ? Math.floor((initialMin * 60 + initialSec) / 600 + 3) : 0;
 
   useEffect(() => {
     const axiosStudyInfo = async () => {
@@ -63,7 +64,7 @@ function FocusPage() {
           <div className="focusContainer">
             <div className="focusTop">
               {/* 이름과 버튼이 있는 컴포넌트 */}
-              <FocusTopTitle studyInfo={studyInfo} />
+              <FocusTopTitle studyInfo={studyInfo} id={id} />
               <div className="focusFlexCon">
                 <span className="grayFont">현재까지 획득한 포인트</span>
                 {/* 포인트를 보여주는 컴포넌트 */}
