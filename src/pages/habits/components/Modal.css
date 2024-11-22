@@ -48,49 +48,57 @@
 }
 
 .modal-item {
-  width: 400px;
-  height: 54px;
-  text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 400px;
+  height: 54px;
   background-color: #f7f7f7;
   border-radius: 20px;
   margin-bottom: 10px;
 }
 
+.modal-input {
+  position: absolute;
+  flex-grow: 1; /* 부모의 가로 공간을 채움 */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 16px; /* 텍스트 크기 조정 */
+  box-sizing: border-box; /* 패딩 포함 크기 계산 */
+  min-width: 200px; /* 최소 가로 크기 지정 */
+}
+
 .habit-text {
-  flex: 1; 
-  text-align: center; 
+  position: relative;
+  flex-grow: 1; 
+  margin-right: 16px; 
   font-size: 16px;
   color: #818181;
-  word-break: break-word; 
-  vertical-align: middle;
+  text-align: center;
+  line-height: 1.2;
+  text-decoration: underline;
 }
 
-
-.delete-button {
-  background: none; /* 배경 제거 */
-  border: none; /* 테두리 제거 */
-  padding: 5px; /* 버튼 여백 */
-  cursor: pointer; /* 마우스 포인터 변경 */
-  display: flex; /* Flexbox로 정렬 */
-  align-items: center; /* 아이콘 세로 중앙 정렬 */
-  justify-content: center; /* 아이콘 가로 중앙 정렬 */
-}
 
 .delete-icon {
-  width: 48px; /* 아이콘 너비 */
-  height: 48px; /* 아이콘 높이 */
-  object-fit: contain; /* 아이콘 비율 유지 */
+  position: relative;
+  width: 48px;
+  height: 48px; 
+  cursor: pointer;
 }
 
 
 .add-habit {
   display: flex;
   margin-top: 10px;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .modal-input {
   flex: 1;
@@ -101,11 +109,13 @@
 }
 
 .add-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   background-color: #4caf50;
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 10px 15px;
+  font-size: 24px;
   cursor: pointer;
 }
 
@@ -157,3 +167,17 @@
 .confirm-button:hover {
   background-color: #45a049;
 }
+.confirm-add-button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  background-color: #99C08E;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirm-add-button:hover {
+  background-color: #45a049;
+}
+
