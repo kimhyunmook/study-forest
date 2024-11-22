@@ -22,3 +22,19 @@
   padding: 12px 24px 12px 24px;
   cursor: pointer;
 }
+.focusButtonTop:hover {
+  background-color: #4caf50;
+  color: #fff;
+}
+@media screen and (max-width: 744px) {
+  .focusTopTitle {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .focusTopTitle {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
