@@ -26,7 +26,7 @@ export function Card({
   }
   function emojiHandle(v) {
     console.log(v);
-    // emojiApi();
+    emojiApi(v);
   }
 
   return (

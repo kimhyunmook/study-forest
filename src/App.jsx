@@ -4,7 +4,7 @@ import Header from "./shared/components/header";
 import DetailPage from "./pages/detailPage/DetailPage";
 import FocusPage from "./pages/focusPage/FocusPage";
 import TodayHabits from "./pages/habits/todayHabits";
-import StudyDetail from "./studydetail/study/study";
+import StudyDetail from "./pages/studydetail/study/study";
 
 function App() {
   return (
