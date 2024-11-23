@@ -97,7 +97,7 @@ function StudyPage() {
 
                   {studyData.emojis.length > 3 && (
                     <div className="emoji-list-add-box" onClick={toggleEmojiList}>
-                      +{studyData.emojis.length - 3}...
+                      + {studyData.emojis.length - 3} ...
                     </div>
                   )}
                 </>

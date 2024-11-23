@@ -22,29 +22,6 @@ function HabitTable({ habit }) {
         setHabitData(habit);
     }, [habit]);
 
-    const handleClick = async (habitItemId, dayKey, currentStatus) => {
-        try {
-            const newStatus = !currentStatus;  // 현재 상태를 반전시킴
-            const updatedData = await updateHabitStatus(habitItemId, dayKey, newStatus);
-
-            // 상태 업데이트가 성공적으로 완료되면 UI를 갱신
-            if (updatedData) {
-                setHabitData((prevData) =>
-                    prevData.map((item) =>
-                        item.id === habitItemId
-                            ? {
-                                ...item,
-                                [dayKey]: newStatus, // 반전된 상태로 업데이트
-                            }
-                            : item
-                    )
-                );
-            }
-        } catch (error) {
-            console.error("습관 상태 업데이트 오류:", error);
-        }
-    };
-
     return (
         <div className="habit-box">
             <div className="habit-record-box">습관 기록표</div>
@@ -70,9 +47,7 @@ function HabitTable({ habit }) {
                                 {daysOfWeek.map((day) => {
                                     const dayStatus = habitItem[day.key]; // 해당 요일의 true/false 값
                                     return (
-                                        <div key={day.key} className="habit-status"
-                                            onClick={() => handleClick(habitItem.id, day.key)}
-                                        >
+                                        <div key={day.key} className="habit-status">
                                             <img
                                                 src={dayStatus ? checkIcon : uncheckIcon}
                                                 alt={dayStatus ? "완료" : "미완료"}
