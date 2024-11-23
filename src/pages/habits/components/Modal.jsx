@@ -45,38 +45,42 @@ const Modal = ({ habits, onUpdate, onClose }) => {
               </button>
             </li>
           ))}
+
+          {/* 새 입력칸 */}
+          {showInput && (
+            <li className="modal-item new-input">
+              <input
+                type="text"
+                value={newHabit}
+                onChange={(e) => setNewHabit(e.target.value)} // 입력값 업데이트
+                placeholder="새로운 습관 입력"
+                className="modal-input"
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") handleAddHabit(); // Enter 키로 추가
+                }}
+              />
+              <button
+                className="delete-button"
+                onClick={() => {
+                  setShowInput(false);
+                  setNewHabit(""); // 입력 초기화
+                }}
+              >
+                <img src={DeleteIcon} alt="삭제" className="delete-icon" />
+              </button>
+            </li>
+          )}
         </ul>
 
-        {/* 새 입력칸 + 삭제 버튼 */}
-        {showInput && (
-          <div className="new-habit">
-            <input
-              type="text"
-              value={newHabit}
-              onChange={(e) => setNewHabit(e.target.value)} // 입력값 업데이트
-              placeholder="새로운 습관 입력"
-              className="modal-input"
-            />
-            <button
-              className="delete-button"
-              onClick={() => setShowInput(false)} // 입력칸 닫기
-            >
-              <img src={DeleteIcon} alt="삭제" className="delete-icon" />
-            </button>
-          </div>
-        )}
-
-        {/* + 버튼 */}
-        {!showInput && (
-          <div className="add-habit">
-            <button
-              className="add-button"
-              onClick={() => setShowInput(true)} // 입력칸 표시
-            >
-              +
-            </button>
-          </div>
-        )}
+        {/* 추가 버튼 */}
+        <div className="add-habit">
+          <button
+            className="add-button"
+            onClick={() => setShowInput(true)} // 입력칸 표시
+          >
+            +
+          </button>
+        </div>
 
         <div className="modal-actions">
           <button className="cancel-button" onClick={onClose}>

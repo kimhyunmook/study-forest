@@ -58,19 +58,68 @@
   background-color: #f7f7f7;
   border-radius: 20px;
   margin-bottom: 10px;
-}
+  position: relative; }
+
 
 .modal-input {
   position: absolute;
-  flex-grow: 1; /* 부모의 가로 공간을 채움 */
   padding: 10px;
-  border: 1px solid #ddd;
+  border: none;
   border-radius: 20px;
   margin-right: 10px;
-  font-size: 16px; /* 텍스트 크기 조정 */
-  box-sizing: border-box; /* 패딩 포함 크기 계산 */
-  min-width: 200px; /* 최소 가로 크기 지정 */
+  font-size: 16px; 
+  min-width: 200px; 
 }
+
+.modal-item.new-input {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 400px;
+  height: 54px;
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.modal-item.new-input .modal-input::placeholder {
+  color: transparent; /* Hides placeholder */
+}
+
+.modal-item.new-input .modal-input {
+  border: none; /* 모든 기본 테두리 제거 */
+  border-width: 1px solid #818181; /* 아래쪽에만 선 추가 */
+  outline: none; /* 포커스 시 기본 테두리 제거 */
+  background: #f7f7f7; /* 배경색 추가 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  font-size: 16px; /* 글자 크기 */
+  color: #333; /* 텍스트 색상 */
+  flex-grow: 1;
+  padding: 0; /* 상하 패딩 제거 */
+  margin: auto; 
+  max-width: 400px;
+  height: 54px;
+  border-radius: 0; /* 곡선 제거 */
+}
+
+.modal-item.new-input {
+  position: relative;
+  display: flex;
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  padding: 10px 20px; /* 입력 필드 컨테이너 패딩 */
+  width: 100%;
+  max-width: 400px;
+  height: 54px;
+  background-color: #f7f7f7; /* 컨테이너 배경색 */
+  border-radius: 20px; /* 컨테이너의 곡선은 유지 */
+  margin-bottom: 10px;
+}
+
+
 
 .habit-text {
   position: relative;
@@ -83,13 +132,17 @@
   text-decoration: underline;
 }
 
-
-.delete-icon {
-  position: relative;
-  width: 48px;
-  height: 48px; 
+.delete-button {
+  position: absolute;
+  top: 50%;
+  right: -50px; /* Adjust this value to move the button outside */
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
 }
+
 
 
 .add-habit {
@@ -109,19 +162,16 @@
 }
 
 .add-button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #4caf50;
-  color: white;
-  border: none;
+  width: 400px;
+  height: 54px;
+  border-radius: 20px;
+  background-color: white;
+  color: #414141;
+  border: 2px solid #414141;
   font-size: 24px;
   cursor: pointer;
 }
 
-.add-button:hover {
-  background-color: #45a049;
-}
 
 .modal-actions {
   display: flex;
@@ -180,4 +230,3 @@
 .confirm-add-button:hover {
   background-color: #45a049;
 }
-
