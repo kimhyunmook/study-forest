@@ -330,7 +330,7 @@
   display: flex;
   width: 826px;
   height: 26px;
-  margin-left: 242px;
+  margin-left: 245px;
 }
 
 .habit-table-day-i {
@@ -353,15 +353,13 @@
 }
 
 .habit-name {
-  width: 246px;
-  height: 64px;
-  padding: 0px 24px;
+  width: 260px;
   gap: 10px;
   font-size: 18px;
   font-weight: 700;
   line-height: 60px;
   text-align: right;
-  padding-right: 80px;
+  padding-right: 50px;
 }
 
 .habit-status-container {
@@ -370,7 +368,6 @@
   justify-content: space-around;
   align-items: center;
   gap: 10px;
-  border : 1px solid black;
 }
 
 .habit-status {
@@ -379,6 +376,7 @@
   align-items: center;
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 
 .habit-status img {
