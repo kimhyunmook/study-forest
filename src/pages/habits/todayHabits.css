@@ -40,4 +40,104 @@ body {
   color: #fff;
 }
 
+/* 흰색 컨테이너 */
+.habits-box {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 컨테이너 그림자 */
+  padding: 20px;
+  margin-top: 20px;
+  min-height: 200px; /* 습관이 없을 때도 높이 유지 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* "습관 없음" 안내 메시지 */
+.no-habits-message {
+  text-align: center;
+  color: #818181;
+}
+
+.no-habits-message p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.habits-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 20px;
+  border: 1px solid #DDDDDD; 
+  width: 1168px;
+  min-height: 631px;
+  background-color: white;
+  border-radius: 20px;
+  margin: 20px auto; 
+}
+ 
+
+/* 고정된 상단 헤더 (박스 내부) */
+.habits-header {
+  position: sticky; 
+  top: 0; /* 컨테이너 상단에 고정 */
+  background-color: white; /* 흰색 배경 */
+  padding: 20px 0; /* 위아래 패딩 설정 */
+  z-index: 10; /* 다른 요소 위에 표시 */
+  display: flex; /* 가로 정렬 */
+  justify-content: space-between; /* 양쪽 끝 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+}
+
+.habits-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #414141;
+  margin-left:  510px;
+}
+
+.edit-button {
+  font-size: 16px;
+  color: #818181;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 10px; /* 제목과 버튼 간 간격 추가 */
+}
+
+/* 습관 리스트 컨테이너 */
+.habits-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 1168px;
+  min-height: 631px;
+  background-color: white;
+  border-radius: 20px;
+  margin: 20px auto;
+  overflow-y: auto; /* 리스트 스크롤 가능 */
+  border: 1px solid #dddddd;
+}
+
+/* "습관 없음" 안내 메시지 */
+.no-habits-message {
+  width: 1120px;
+  height: 249px;
+  text-align: center;
+  color: #818181;
+  margin-top: 225px;
+}
+
+.no-habits-message p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* 불필요한 줄 제거 */
+.habits-header::after {
+  content: none; /* 추가된 줄 제거 */
+}
 

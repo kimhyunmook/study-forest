@@ -48,49 +48,110 @@
 }
 
 .modal-item {
-  width: 400px;
-  height: 54px;
-  text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 400px;
+  height: 54px;
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  position: relative; }
+
+
+.modal-input {
+  position: absolute;
   padding: 10px;
+  border: none;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 16px; 
+  min-width: 200px; 
+}
+
+.modal-item.new-input {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 400px;
+  height: 54px;
   background-color: #f7f7f7;
   border-radius: 20px;
   margin-bottom: 10px;
 }
 
+.modal-item.new-input .modal-input::placeholder {
+  color: transparent; /* Hides placeholder */
+}
+
+.modal-item.new-input .modal-input {
+  border: none; /* 모든 기본 테두리 제거 */
+  border-width: 1px solid #818181; /* 아래쪽에만 선 추가 */
+  outline: none; /* 포커스 시 기본 테두리 제거 */
+  background: #f7f7f7; /* 배경색 추가 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  font-size: 16px; /* 글자 크기 */
+  color: #333; /* 텍스트 색상 */
+  flex-grow: 1;
+  padding: 0; /* 상하 패딩 제거 */
+  margin: auto; 
+  max-width: 400px;
+  height: 54px;
+  border-radius: 0; /* 곡선 제거 */
+}
+
+.modal-item.new-input {
+  position: relative;
+  display: flex;
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  padding: 10px 20px; /* 입력 필드 컨테이너 패딩 */
+  width: 100%;
+  max-width: 400px;
+  height: 54px;
+  background-color: #f7f7f7; /* 컨테이너 배경색 */
+  border-radius: 20px; /* 컨테이너의 곡선은 유지 */
+  margin-bottom: 10px;
+}
+
+
+
 .habit-text {
-  flex: 1; 
-  text-align: center; 
+  position: relative;
+  flex-grow: 1; 
+  margin-right: 16px; 
   font-size: 16px;
   color: #818181;
-  word-break: break-word; 
-  vertical-align: middle;
+  text-align: center;
+  line-height: 1.2;
+  text-decoration: underline;
 }
-
 
 .delete-button {
-  background: none; /* 배경 제거 */
-  border: none; /* 테두리 제거 */
-  padding: 5px; /* 버튼 여백 */
-  cursor: pointer; /* 마우스 포인터 변경 */
-  display: flex; /* Flexbox로 정렬 */
-  align-items: center; /* 아이콘 세로 중앙 정렬 */
-  justify-content: center; /* 아이콘 가로 중앙 정렬 */
+  position: absolute;
+  top: 50%;
+  right: -50px; /* Adjust this value to move the button outside */
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
-.delete-icon {
-  width: 48px; /* 아이콘 너비 */
-  height: 48px; /* 아이콘 높이 */
-  object-fit: contain; /* 아이콘 비율 유지 */
-}
 
 
 .add-habit {
   display: flex;
   margin-top: 10px;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .modal-input {
   flex: 1;
@@ -101,17 +162,16 @@
 }
 
 .add-button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 15px;
+  width: 400px;
+  height: 54px;
+  border-radius: 20px;
+  background-color: white;
+  color: #414141;
+  border: 2px solid #414141;
+  font-size: 24px;
   cursor: pointer;
 }
 
-.add-button:hover {
-  background-color: #45a049;
-}
 
 .modal-actions {
   display: flex;
@@ -155,5 +215,18 @@
 }
 
 .confirm-button:hover {
+  background-color: #45a049;
+}
+.confirm-add-button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  background-color: #99C08E;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirm-add-button:hover {
   background-color: #45a049;
 }
