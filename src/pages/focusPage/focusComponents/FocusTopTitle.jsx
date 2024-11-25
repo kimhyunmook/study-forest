@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
+
 import "./FocusTopTitle.css";
 
-function FocusTopTitle() {
+function FocusTopTitle({ studyInfo, id }) {
+  const studyName = studyInfo?.nickName || "로딩 중...";
+
   return (
     <div className="focusTopTitle">
-      <div className="focusTitleFont">연우의 개발공장</div>
+      <div className="focusTitleFont">{studyName}</div>
       <div className="focusTopBtCon">
-        <Link to="/habit">
+        <Link to={`/study/${id}/todayhabits`}>
           <button type="button" className="focusButtonTop">
             오늘의 습관 ❯
           </button>

@@ -27,7 +27,10 @@ export function Card({
     const inProgress = today.getDate() - createDay.getDate();
     return inProgress;
   }
-  
+  function emojiHandle(v) {
+    console.log(v);
+    emojiApi(v);
+  }
 
   return (
     <div className={`card ${type} ${className}`}>

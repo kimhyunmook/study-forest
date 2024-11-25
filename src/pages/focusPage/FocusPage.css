@@ -56,3 +56,20 @@
   background-color: #e1edde;
   color: #578246;
 }
+
+@media screen and (max-width: 744px) {
+  .focusWrap {
+    padding: 24px;
+  }
+  .focusContainer {
+    width: 648px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .focusWrap {
+    padding: 16px;
+  }
+  .focusContainer {
+    width: 312px;
+  }
+}

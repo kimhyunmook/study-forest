@@ -29,3 +29,13 @@
   color: gray;
   font-size: 16px;
 }
+
+@media screen and (max-width: 375px) {
+  .focusMainContainer {
+    width: 312px;
+    gap: 0px;
+  }
+  .focusTimer {
+    gap: 0px;
+  }
+}
