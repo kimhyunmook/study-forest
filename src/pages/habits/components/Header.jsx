@@ -1,32 +1,40 @@
 import React, { useEffect, useState } from "react";
 import "./Header.css";
 import TimeDisplay from "./Timedisplay";
-import { useNavigate } from "react-router-dom";
-import { getNickNameById } from "../api/habitsApi"; // 수정된 API 호출 함수 import
+import { useNavigate, useParams } from "react-router-dom";
+import { getStudyById } from "../api/habitsApi"; // API 함수
 
 const Header = () => {
   const navigate = useNavigate();
-  const [nickName, setNickName] = useState("로딩 중...");
-  const studyId = "1"; // 스터디 ID (실제 값을 여기에 설정)
+  const { id: studyId } = useParams(); // URL에서 studyId 추출
+  const [studyData, setStudyData] = useState(null); // studyData 저장
 
   useEffect(() => {
-    async function fetchNickName() {
+    async function fetchStudyData() {
       try {
-        const nickNameData = await getNickNameById(studyId); // API 호출
-        setNickName(nickNameData || "닉네임 없음"); // 닉네임 상태 업데이트
+        if (!studyId) return; // studyId가 없으면 호출하지 않음
+        const data = await getStudyById(studyId); // studyData 가져오기
+        setStudyData(data); // state에 저장
       } catch (error) {
-        console.error("닉네임 가져오기 실패:", error);
-        setNickName("오류 발생");
+        console.error("스터디 데이터 가져오기 실패:", error);
+        setStudyData(null); // 에러 처리
       }
     }
 
-    fetchNickName();
-  }, [studyId]); // studyId가 변경되면 다시 호출
+    fetchStudyData();
+  }, [studyId]); // studyId가 변경될 때마다 호출
 
   return (
     <header className="header">
       <div className="header-left">
-        <h1 className="studyname">{nickName}</h1> {/* 닉네임 표시 */}
+        {/* studyData가 존재하면 nickName과 studyName 표시 */}
+        {studyData ? (
+          <h1 className="studyname">
+            {studyData.nickName}의 {studyData.studyName}
+          </h1>
+        ) : (
+          <h1 className="studyname">로딩 중...</h1>
+        )}
         <br />
         <p>현재 시간</p>
         <p className="time">
