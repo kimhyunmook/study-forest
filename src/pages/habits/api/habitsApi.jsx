@@ -46,3 +46,12 @@ export async function toggleHabitCheck(id) {
 }
 
 
+export const getNickNameById = async (id) => {
+  try {
+    const response = await axios.get(`${API_URL}/study/${id}`);
+    return response.data.data.nickName; // nickName만 반환
+  } catch (err) {
+    console.error("닉네임 가져오기 실패:", err);
+    throw err;
+  }
+};
