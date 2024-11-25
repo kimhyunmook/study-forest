@@ -4,7 +4,7 @@ import Loading from "../../shared/components/Loading";
 import Layout, { WhiteContainer } from "../../shared/components/Layout";
 import SearchBox from "./components/Search";
 import "./css/home.css";
-import { getLatestStudyApi, getStudyListApi } from "./api/homeApi";
+import { getLatestStudyApi, getStudyListApi, emojiApi } from "./api/homeApi";
 import { setCookie } from "../../shared/hook/hook";
 import { useNavigate } from "react-router-dom";
 
@@ -18,6 +18,7 @@ export default function Home() {
   const [keyword, setKeyword] = useState("");
   const [loading, setLoading] = useState(false);
   const [cardLoading, setCardLoading] = useState(false);
+  const [lender, setLender] = useState(false);
   const navigate = useNavigate();
   const latest = setCookie("get", {
     cookieName: "studyLook",
@@ -44,15 +45,18 @@ export default function Home() {
       });
     }, 2000);
   }, [pageSize, orderBy]);
-
   useEffect(() => {
-    setLoading(true);
+    API();
+    console.log("랜딩");
+  }, [lender]);
+  useEffect(() => {
+    // setLoading(true);
     setTimeout(() => {
       API(() => {
         setLoading(false);
         setCardLoading(false);
       });
-    }, 3500);
+    }, 3000);
   }, []);
 
   const moreBtnHandle = (e) => {
@@ -76,6 +80,20 @@ export default function Home() {
       navigate(`/study/${id}`);
     }, time);
   };
+  function emojiHandle(v) {
+    let body = {
+      id: v.id,
+    };
+    if (!lender)
+      emojiApi(body).then((res) => {
+        console.log("res", res);
+        setLender(true);
+        setTimeout(() => {
+          setLender(false);
+        }, 100);
+      });
+    else alert("기다려주세요");
+  }
   return (
     <Layout paddingBottom={"174px"} paddingTop={"40px"} width={"1200px"}>
       <Loading loading={loading} />
@@ -99,6 +117,7 @@ export default function Home() {
                 onClick={() => {
                   cardLink(v.id);
                 }}
+                emojiHandle={emojiHandle}
               >
                 {v.introduce}
               </Card>
@@ -129,39 +148,44 @@ export default function Home() {
               zIndex: 98,
             }}
           />
-          {study.map((v, i) => {
-            function details(e) {
-              e.preventDefault();
-              e.stopPropagation();
-              const cookieName = "studyLook";
-              let newArr = [...cok, v.id];
-              setCok(newArr);
-              setCookie("create", {
-                cookieName,
-                cookieValue: newArr,
-                end: 1,
-              });
+          {study.length > 0 ? (
+            study.map((v, i) => {
+              function details(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const cookieName = "studyLook";
+                let newArr = [...cok, v.id];
+                setCok(newArr);
+                setCookie("create", {
+                  cookieName,
+                  cookieValue: newArr,
+                  end: 1,
+                });
 
-              cardLink(v.id);
-            }
-            let mbn = "";
-            if (i < study.length - 3) mbn = "mbn";
-            return (
-              <Card
-                onClick={details}
-                key={i}
-                type={v.background}
-                point={v.point}
-                emoji={v.emojis}
-                inProgress={v.createdAt}
-                userName={v.nickName}
-                name={v.studyName}
-                className={mbn}
-              >
-                {v.introduce}
-              </Card>
-            );
-          })}
+                cardLink(v.id);
+              }
+              let mbn = "";
+              if (i < study.length - 3) mbn = "mbn";
+              return (
+                <Card
+                  onClick={details}
+                  key={i}
+                  type={v.background}
+                  point={v.point}
+                  emoji={v.emojis}
+                  inProgress={v.createdAt}
+                  userName={v.nickName}
+                  name={v.studyName}
+                  className={mbn}
+                  emojiHandle={emojiHandle}
+                >
+                  {v.introduce}
+                </Card>
+              );
+            })
+          ) : (
+            <p className="noList">스터디가 없습니다.</p>
+          )}
         </Cards>
         {!!study.length ? (
           <a href="#" onClick={moreBtnHandle} className="moreBtn">
