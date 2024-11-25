@@ -9,8 +9,8 @@ import { setCookie } from "../../shared/hook/hook";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const [study, setStudy] = useState([]);
-  const [studyLook, setStudyLook] = useState([]);
+  const [study, setStudy] = useState([{}]);
+  const [studyLook, setStudyLook] = useState([{}]);
   const [cok, setCok] = useState([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(6);
@@ -47,7 +47,6 @@ export default function Home() {
   }, [pageSize, orderBy]);
   useEffect(() => {
     API();
-    console.log("랜딩");
   }, [lender]);
   useEffect(() => {
     // setLoading(true);
@@ -105,23 +104,24 @@ export default function Home() {
       >
         <Cards noList="아직 조회한 스터디가 없어요" height="229px">
           {studyLook.map((v, i) => {
-            return (
-              <Card
-                key={i}
-                type={v.background}
-                point={v.point}
-                emoji={v.emojis}
-                inProgress={v.createdAt}
-                userName={v.nickName}
-                name={v.studyName}
-                onClick={() => {
-                  cardLink(v.id);
-                }}
-                emojiHandle={emojiHandle}
-              >
-                {v.introduce}
-              </Card>
-            );
+            if (!!v)
+              return (
+                <Card
+                  key={i}
+                  type={v.background}
+                  point={v.point}
+                  emoji={v.emojis}
+                  inProgress={v.createdAt}
+                  userName={v.nickName}
+                  name={v.studyName}
+                  onClick={() => {
+                    cardLink(v.id);
+                  }}
+                  emojiHandle={emojiHandle}
+                >
+                  {v.introduce}
+                </Card>
+              );
           })}
         </Cards>
       </WhiteContainer>
