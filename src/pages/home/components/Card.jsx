@@ -12,10 +12,12 @@ export function Card({
   children,
   className = "",
   onClick,
-  emojiHandle
+  emojiHandle,
 }) {
   const [max1, max2] = [18, 45];
   const [lender, setLender] = useState(false);
+  const [emojiSort, SetEmojiSort] = useState();
+  emoji = emoji.sort((a, b) => a.id.localeCompare(b.id));
   function textSlice(text = "", maxLength = 0) {
     return text.length > maxLength
       ? text.substring(0, maxLength) + "..."
@@ -26,10 +28,6 @@ export function Card({
     const createDay = new Date(date);
     const inProgress = today.getDate() - createDay.getDate();
     return inProgress;
-  }
-  function emojiHandle(v) {
-    console.log(v);
-    emojiApi(v);
   }
 
   return (

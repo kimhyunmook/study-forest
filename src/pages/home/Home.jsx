@@ -47,6 +47,7 @@ export default function Home() {
   }, [pageSize, orderBy]);
   useEffect(() => {
     API();
+    console.log("랜딩");
   }, [lender]);
   useEffect(() => {
     // setLoading(true);
@@ -85,6 +86,7 @@ export default function Home() {
     };
     if (!lender)
       emojiApi(body).then((res) => {
+        console.log("res", res);
         setLender(true);
         setTimeout(() => {
           setLender(false);
