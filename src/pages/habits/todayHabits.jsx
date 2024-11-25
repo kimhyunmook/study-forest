@@ -7,13 +7,13 @@ import Layout from "../../shared/components/Layout";
 
 const TodayHabits = () => {
   const [habits, setHabits] = useState([
-    "리부트 정상화 해줬잖아",
-    "본서버 완화도 해줬잖아",
-    "컨텐츠 출시도 해줬잖아",
-    "그냥 다 해줬잖아",
-    "아니지 나는 정상화의 신",
-    "아직 남아 있는 최후의 수단이 있지",
-    "이제 돈 열심히 써줄 거지?",
+    "미라클모닝 6시 기상",
+    "아침 챙겨 먹기",
+    "React 스터디 책 1챕터 읽기",
+    "스트레칭",
+    "영양제 챙겨 먹기",
+    "사이드 프로젝트",
+    "물 2L 먹기",
   ]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
