@@ -16,7 +16,7 @@ export default function SearchBox({ selectValue, inputValue, searchHandle }) {
     e.preventDefault();
     setTimeout(() => {
       ic_search.current.classList.remove("on");
-    }, 500);
+    }, 50);
   }
 
   return (
