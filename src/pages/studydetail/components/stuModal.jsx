@@ -54,7 +54,8 @@ export const StuModal = ({ studyName, password, isVisible, onClose, onSubmit, ac
           </span>
         </div>
         <button onClick={handleSubmit}>
-          {actionType === "edit" ? "수정하러 가기" : "삭제하기"}</button>
+          {actionType === "edit" ? "수정하기" : actionType === "delete" ? "삭제하기" : "이동하기"}
+        </button>
       </div>
     </div>
   );
