@@ -16,7 +16,7 @@ function StudyPage() {
 
   const closeModal = () => {
     setIsOpen(false);
-    setErrorMessage(""); // 모달을 닫을 때 오류 메시지 초기화
+    setErrorMessage(""); // 모달을 닫을 때 오류메시지 초기화
   };
 
   const handlePasswordSubmit = () => {

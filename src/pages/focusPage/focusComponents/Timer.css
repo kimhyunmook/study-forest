@@ -15,3 +15,33 @@
   border: none;
   outline: none;
 }
+.editInputDiv {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 744px) {
+  .timerDiv {
+    font-size: 120px;
+  }
+  .timerInput {
+    font-size: 120px;
+    width: 280px;
+  }
+  .editInputDiv {
+    width: 800px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .timerDiv {
+    font-size: 60px;
+  }
+  .timerInput {
+    font-size: 46px;
+    width: 128px;
+  }
+  .editInputDiv {
+    width: 312px;
+  }
+}

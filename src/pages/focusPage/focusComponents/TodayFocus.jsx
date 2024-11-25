@@ -139,7 +139,7 @@ function TodayFocus({
         <div>오늘의 집중</div>
         {!isStart ? (
           <div className="timerDescription">
-            타이머를 클릭하여 시간을 설정해주세요!
+            타이머를 클릭하여 시간을 설정해주세요!-30분 이상
           </div>
         ) : (
           <div></div>

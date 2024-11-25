@@ -20,14 +20,14 @@ function Timer({
           timerState === "over"
             ? "#818181"
             : (timerState === "running" || timerState === "pause") && min < 5
-            ? "#F50E0E"
-            : "#414141",
+              ? "#F50E0E"
+              : "#414141",
       }}
     >
       {/* 클릭하면 시간 설정 div 보이기 */}
       {/* isDone이 true면 작동 안함 */}
       {timerState === "editing" ? (
-        <div>
+        <div className="editInputDiv">
           <input
             type="number"
             name="min"
@@ -50,7 +50,7 @@ function Timer({
         `${timerState === "over" ? "-" : ""}${String(min).padStart(
           2,
           "0"
-        )} : ${String(sec).padStart(2, "0")}`
+        )}:${String(sec).padStart(2, "0")}`
       )}
     </div>
   );
