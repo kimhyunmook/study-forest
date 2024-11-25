@@ -37,8 +37,9 @@ function StudyPage() {
   const handleDeleteStudy = async () => {
     try {
       await deleteStudyById(id);
-      alert("스터디가 성공적으로 삭제되었습니다.");
-      navigate("/");
+      setTimeout(() => {
+        navigate("/");
+      }, 1500);
     } catch (error) {
       console.error("스터디 삭제 중 오류 발생:", error);
     }
@@ -66,6 +67,8 @@ function StudyPage() {
       }
       if (actionType === "delete") {
         handleDeleteStudy();
+        setAlertMessage("🚨 게시글이 삭제되었습니다.");
+        setAlertVisible1(true);
       }
       if (actionType === "habit") {
         navigate(`/study/${id}/todayhabits`);
