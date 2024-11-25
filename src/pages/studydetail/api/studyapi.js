@@ -21,9 +21,9 @@ export const updateHabitStatus = async (habitId, day, status) => {
     }
 };
 
-export const createEmoji = async (native, studyId) => {  // studyId를 함수의 인자로 받도록 수정
+export const createEmoji = async (native, studyId) => {
     try {
-        const response = await axios.post(`${API_URL}/api/studydetail/emojis`, {
+        const response = await axios.post(`${API_URL}/api/home/emoji`, {
             emojiIcon: native.native,
             studyId: native.studyId,
         });
