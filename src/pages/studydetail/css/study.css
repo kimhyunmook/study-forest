@@ -1,0 +1,656 @@
+/* study.css */
+
+/* 페이지 전체 컨테이너 */
+.study-page-contain {
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 40px;
+  gap: 10px;
+  border-radius: 20px;
+  background-color: white;
+
+}
+
+/* 첫 번째 박스 - 이모지 선택 */
+.first-box {
+  margin-bottom: 20px;
+}
+
+.emoji-list {
+  display: flex;
+  flex-direction: row;
+  height: 31px;
+  gap: 4px;
+
+}
+
+.emoji-all-box {
+  display: flex;
+  gap: 4px;
+}
+
+.emoji-list-add-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 31px;
+  gap: 5px;
+  border-radius: 50px;
+  color: white;
+  background-color: #0000004D;
+  cursor: pointer;
+}
+
+.emoji-message {
+  display: flex;
+  align-items: center;
+  color: #0000004D;
+}
+
+.emoji-list-favorite-container {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.emoji-list-favorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 31px;
+  padding: 3px;
+  gap: 5px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.09px;
+  color: white;
+  background-color: #00000080;
+}
+
+.tsetyes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+.first-box1 {
+  margin-bottom: 40px;
+}
+
+.emote-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.selected-emojis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.button-group .button-click {
+  background-color: white;
+  color: #578246;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.09px;
+}
+
+.button-group .button-click1 {
+  background-color: white;
+  color: #818181;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.09px;
+}
+
+.selected-emojis .emoji {
+  font-size: 24px;
+}
+
+.selected-emojis p {
+  text-align: center;
+  font-size: 18px;
+}
+
+/* 두 번째 박스 - 소개 입력 */
+.introduce-box {
+  margin-bottom: 20px;
+
+}
+
+.introBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 55px;
+  margin-top: 20px;
+}
+
+.UserName {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 38.19px;
+  color: #414141;
+
+  margin-bottom: 10px;
+}
+
+.now-point {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.48px;
+  margin-top: 20px;
+  color: #818181;
+
+}
+
+.pointBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+}
+
+.intro-title {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.48px;
+  color: #818181;
+
+}
+
+.intro-introduce {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.now-point-value {
+  display: flex;
+  justify-content: space-around;
+  width: 116px;
+  height: 35px;
+  padding: 8px 12px 8px 12px;
+  gap: 8px;
+  border-radius: 50px;
+  border: 1px solid #0000001A;
+}
+
+.introduce-box p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* 세 번째 박스 - 습관 체크박스 */
+.habbit-box {
+  margin-bottom: 20px;
+
+}
+
+.habit-record-box {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.notyet-habit {
+  font-size: 18px;
+  text-align: center;
+  color: #888;
+  margin-top: 20px;
+
+}
+
+/* 모달 스타일 */
+.open-modal-button {
+  padding: 10px 20px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+
+}
+
+.open-modal-button:hover {
+  background-color: #e64a19;
+}
+
+.Modal {
+  position: relative;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.password-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+  width: 80%;
+}
+
+.error-message {
+  color: red;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.password-submit-button {
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.password-submit-button:hover {
+  background-color: #1976d2;
+}
+
+.close-modal-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-footer-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-footer-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+/* Wrong password section */
+.wrong-password {
+  text-align: center;
+  color: red;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.habit-box {
+  width: 1120px;
+  height: 511px;
+  padding: 24px;
+  gap: 10px;
+  border-radius: 20px;
+  border: 1px solid #DDDDDD;
+
+}
+
+.habit-record-box {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 28.64px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.habit-table-day {
+  display: flex;
+  width: 826px;
+  height: 26px;
+  margin-left: 242px;
+}
+
+.habit-table-day-i {
+  width: 14.3%;
+  padding-left: 60px;
+}
+
+.habit-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.habit-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.habit-name {
+  width: 246px;
+  height: 64px;
+  padding: 0px 24px;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 60px;
+  text-align: right;
+  padding-right: 80px;
+}
+
+.habit-status-container {
+  display: flex;
+  width: 826px;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  border : 1px solid black;
+}
+
+.habit-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.habit-status img {
+  width: 100%;
+  height: 100%;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.notyet-habit {
+  color: #777;
+  font-size: 16px;
+}
+
+.first-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.emote-box {
+  margin-bottom: 10px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  /* 버튼 사이에 간격을 둡니다 */
+  margin-top: 10px;
+}
+
+/* 모달 오버레이 */
+.modal-overlay1 {
+  position: fixed;
+  width: 1648px;
+  height: 369px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10001;
+}
+
+/* 모달 내용 */
+.modal-content1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: #fff;
+  width: 650px;
+  height: 369px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+/* 모달 제목 */
+.modal-content1 h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.modal-text1 {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 28.64px;
+  text-align: center;
+}
+
+.modal-text2 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21.48px;
+}
+
+.modal-text3 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21.48px;
+}
+
+/* 비밀번호 입력 필드 */
+.modal-content1 input {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1px solid #DDDDDD;
+  padding-left: 15px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.detail-page-password-typeChange-icon1 {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-icon1 {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.close-button {
+  height: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 20px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.09px;
+  color: #578246;
+  cursor: pointer;
+}
+
+/* 오류 메시지 */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* 모달 버튼 */
+.modal-content1 button {
+  background-color: #99C08E;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+/* 버튼 hover 효과 */
+.modal-content1 button {
+  background-color: #86b07a;
+  width: 600px;
+  height: 58px;
+  font-family: jejudo;
+}
+
+/* 버튼 취소 시 hover 효과 */
+.modal-content1 button[type="button"]:hover {
+  background-color: #bbb;
+}
+
+/* 모달 취소 버튼 위치 조정 (가장 아래) */
+.modal-content1 button[type="button"] {
+  width: auto;
+  margin: 10px auto 0;
+}
+
+/* 외부 클릭 시 모달 닫기 */
+.modal-overlay1 {}
+
+/* 모달 내부 클릭 시 모달이 닫히지 않도록 설정 */
+.modal-content1 {
+  pointer-events: all;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+}
+
+.emoji-add-button {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+
+.emoji-picker-container {
+  position: absolute;
+  margin-top: 10px;
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.selected-emoji {
+  text-align: center;
+}
+
+.selected-emoji h3 {
+  margin-bottom: 10px;
+}
+
+.selected-emoji span {
+  font-size: 3rem;
+}
+
+.emoji-All-List {
+  display: flex;
+  position: absolute;
+  top: 180px;
+  left: 50%;
+  transform: translateX(-235%);
+  width: 242px;
+  padding: 10px;
+  gap: 10px;
+  border-radius: 15px;
+  flex-wrap: wrap;
+  border: 1px solid #DDDDDD;
+  background-color: white;
+  z-index: 9999;
+}
+
+.emoji-list-favorite-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 60px;
+  min-width: 46px;
+  height: 31px;
+  padding: 3px;
+  gap: 4px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.09px;
+  color: white;
+  background-color: #00000080;
+}
+
+.overlay-1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 10001;
+}
+
+.custom-alert-1 {
+  position: fixed;
+  top: 850px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FDE0E9;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-align: center;
+  z-index: 10001;
+}
+
+.alertText-1 {
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 19.09px;
+  color: red;
+  z-index: 3;
+
+}
