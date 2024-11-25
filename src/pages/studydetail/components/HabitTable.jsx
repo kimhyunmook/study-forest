@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { API_URL } from '../../../shared/api/API_URL';
 
 function HabitTable({ habit }) {
     const [habitData, setHabitData] = useState(habit);
@@ -6,20 +8,46 @@ function HabitTable({ habit }) {
     const daysOfWeek = [
         { name: '월', key: 'monday' },
         { name: '화', key: 'tuesday' },
-        { name: '수', key: 'wednesday' },
+        { name: '수', key: 'wendnesday' },
         { name: '목', key: 'thursday' },
         { name: '금', key: 'friday' },
         { name: '토', key: 'saturday' },
         { name: '일', key: 'sunday' },
     ];
 
-    // 이미지 경로 (습관 완료/미완료 상태를 나타내는 이미지)
-    const checkIcon = "/img/success_check.png";  // 완료 이미지
-    const uncheckIcon = "/img/fail_check.png";  // 미완료 이미지
+    const checkIcon = "/img/success_check.png";
+    const uncheckIcon = "/img/fail_check.png";
 
     useEffect(() => {
         setHabitData(habit);
     }, [habit]);
+
+    const toggleDayStatus = async (habitId, dayKey) => {
+        const updatedData = habitData.map((item) => {
+            if (item.id === habitId) {
+                return {
+                    ...item,
+                    [dayKey]: !item[dayKey],
+                };
+            }
+            return item;
+        });
+        console.log(updatedData);
+        setHabitData(updatedData);
+
+        try {
+            const newValue = updatedData.find((item) => item.id === habitId)[dayKey];
+            const response = await axios.patch(`${API_URL}/api/home/habitUpdate`, {
+                habitId,
+                dayKey,
+                newValue,
+            });
+            console.log(response.data);
+        } catch (error) {
+            console.error("상태 업데이트 실패:", error);
+            setHabitData(habitData);
+        }
+    };
 
     return (
         <div className="habit-box">
@@ -31,23 +59,19 @@ function HabitTable({ habit }) {
             ) : (
                 <div className="habit-table">
                     <div className='habit-table-day'>
-                        <div className='habit-table-day-i'>월</div>
-                        <div className='habit-table-day-i'>화</div>
-                        <div className='habit-table-day-i'>수</div>
-                        <div className='habit-table-day-i'>목</div>
-                        <div className='habit-table-day-i'>금</div>
-                        <div className='habit-table-day-i'>토</div>
-                        <div className='habit-table-day-i'>일</div>
+                        {daysOfWeek.map((day) => (
+                            <div key={day.key} className='habit-table-day-i'>{day.name}</div>
+                        ))}
                     </div>
                     {habitData.map((habitItem) => (
                         <div className="habit-row" key={habitItem.id}>
-                            <div className="habit-name">{habitItem.name}</div> {/* 습관 이름 표시 */}
+                            <div className="habit-name">{habitItem.name}</div>
                             <div className="habit-status-container">
                                 {daysOfWeek.map((day) => {
-                                    const dayStatus = habitItem[day.key]; // 해당 요일의 true/false 값
+                                    const dayStatus = habitItem[day.key];
                                     return (
                                         <div key={day.key} className="habit-status"
-
+                                            onClick={() => toggleDayStatus(habitItem.id, day.key)}
                                         >
                                             <img
                                                 src={dayStatus ? checkIcon : uncheckIcon}

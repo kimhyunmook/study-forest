@@ -10,17 +10,6 @@ export const getStudyById = async (id) => {
     }
 };
 
-export const updateHabitStatus = async (habitId, day, status) => {
-    try {
-        const response = await axios.patch(
-            `${API_URL}/api/home/habits/${habitId}/status`,
-            { day, status }
-        );
-    } catch (error) {
-        console.error('Error updating habit status:', error);
-    }
-};
-
 export const createEmoji = async (native, studyId) => {
     try {
         const response = await axios.post(`${API_URL}/api/home/emoji`, {
@@ -36,7 +25,7 @@ export const createEmoji = async (native, studyId) => {
 };
 
 export const deleteStudyById = async (id) => {
-    console.log("API 호출 ID:", id); // API 호출 시 ID 확인
+    console.log("API 호출 ID:", id);
     try {
         await axios.delete(`${API_URL}/api/home/study/${id}`);
     } catch (err) {

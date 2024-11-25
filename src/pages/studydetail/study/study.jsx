@@ -10,7 +10,6 @@ import { deleteStudyById } from "../api/studyapi";
 function StudyPage() {
   const navigate = useNavigate();
   const { id } = useParams(); // URL에서 스터디 ID 추출
-  console.log("스터디 ID:", id);
 
   const [studyData, setStudyData] = useState({});
   const [habitData, setHabitData] = useState([]);
@@ -28,14 +27,12 @@ function StudyPage() {
       const data = await getStudyById(id);
       setStudyData(data);
       setHabitData(data.habit || []);
-      console.log("Fetched study data:", data);
     } catch (error) {
       console.error("Failed to fetch study data:", error.message);
     }
   };
 
   const handleDeleteStudy = async () => {
-    console.log("삭제 요청 ID:", id); // 전달된 studyId 확인
     try {
       await deleteStudyById(id);
       alert("스터디가 성공적으로 삭제되었습니다.");
