@@ -1,4 +1,3 @@
-// stuModal.jsx
 import { useState } from "react";
 
 export const StuModal = ({ studyName, password, isVisible, onClose, onSubmit, actionType }) => {
@@ -31,7 +30,6 @@ export const StuModal = ({ studyName, password, isVisible, onClose, onSubmit, ac
         <div className="close-button" onClick={handleClose}>나가기</div>
         <div className="modal-text1">{studyName}</div>
         <div className="modal-text2">권한이 필요해요 ! </div>
-        <div className="modal-text3">비밀번호를 입력하세요</div>
         <div style={{ position: "relative" }}>
           <input
             type={isPasswordVisible ? "text" : "password"}

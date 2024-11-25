@@ -10,18 +10,6 @@ export const getStudyById = async (id) => {
     }
 };
 
-export const updateHabitStatus = async (habitId, day, status) => {
-    try {
-        const response = await axios.patch(
-            `${API_URL}/api/home/habits/${habitId}/status`,
-            { day, status } // 요일과 상태를 요청 본문으로 전달
-        );
-        console.log(response.data);  // 응답 데이터 확인
-    } catch (error) {
-        console.error('Error updating habit status:', error);
-    }
-};
-
 export const createEmoji = async (native, studyId) => {  // studyId를 함수의 인자로 받도록 수정
     try {
         console.log('Sending emoji:', native.native);  // native.native로 emojiIcon을 확인
@@ -36,5 +24,15 @@ export const createEmoji = async (native, studyId) => {  // studyId를 함수의
     } catch (error) {
         console.error("이모지 생성 중 오류 발생:", error);
         throw error;
+    }
+};
+
+export const deleteStudyById = async (id) => {
+    console.log("API 호출 ID:", id); // API 호출 시 ID 확인
+    try {
+        await axios.delete(`${API_URL}/api/home/study/${id}`);
+    } catch (err) {
+        console.error("스터디 삭제 중 오류 발생:", err);
+        throw err;
     }
 };

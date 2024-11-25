@@ -5,12 +5,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import '../css/study.css';
 import HabitTable from "../components/HabitTable";
 import { StuModal } from "../components/stuModal";
-import { CreateButtonModal } from "../../detailPage/components/CreateButtonModal";
-import { createEmoji } from "../api/studyapi";
-
+import { PasswordErrorModal } from "../components/passwordErrorModal";
+import { deleteStudyById } from "../api/studyapi";
 function StudyPage() {
   const navigate = useNavigate();
   const { id } = useParams(); // URL에서 스터디 ID 추출
+  console.log("스터디 ID:", id);
 
   const [studyData, setStudyData] = useState({});
   const [habitData, setHabitData] = useState([]);
@@ -34,6 +34,17 @@ function StudyPage() {
     }
   };
 
+  const handleDeleteStudy = async () => {
+    console.log("삭제 요청 ID:", id); // 전달된 studyId 확인
+    try {
+      await deleteStudyById(id);
+      alert("스터디가 성공적으로 삭제되었습니다.");
+      navigate("/");
+    } catch (error) {
+      console.error("스터디 삭제 중 오류 발생:", error);
+    }
+  };
+
   useEffect(() => {
     fetchStudyData();
   }, [id]);
@@ -44,7 +55,7 @@ function StudyPage() {
 
   const handlePasswordSubmit = (inputPassword) => {
     if (!inputPassword) {
-      setAlertMessage("비밀번호를 입력하세요.");
+      setAlertMessage("🚨 비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
       setAlertVisible1(true);
       return;
     }
@@ -54,11 +65,11 @@ function StudyPage() {
       if (actionType === "edit") {
         navigate(`/study/${id}/todayhabits`);
       } else if (actionType === "delete") {
-        // 삭제 로직 추가 해야함
+        handleDeleteStudy();
         console.log("Study deleted successfully");
       }
     } else {
-      setAlertMessage("비밀번호가 틀렸습니다.");
+      setAlertMessage("🚨 비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
       setAlertVisible1(true);
     }
   };
@@ -97,7 +108,7 @@ function StudyPage() {
 
                   {studyData.emojis.length > 3 && (
                     <div className="emoji-list-add-box" onClick={toggleEmojiList}>
-                      +{studyData.emojis.length - 3}...
+                      + {studyData.emojis.length - 3} ...
                     </div>
                   )}
                 </>
@@ -176,7 +187,7 @@ function StudyPage() {
           onSubmit={handlePasswordSubmit}
           actionType={actionType}
         />
-        <CreateButtonModal
+        <PasswordErrorModal
           message={alertMessage}
           isVisible={isAlertVisible1}
           onClose={() => setAlertVisible1(false)}
