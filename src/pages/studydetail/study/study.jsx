@@ -21,6 +21,7 @@ function StudyPage() {
   const pointIcon = "/img/pointIcon.png"; // 포인트 아이콘 경로
   const [emojiList, setEmojiList] = useState(false);
 
+  const right = "/img/right.png"
   // 데이터 요청 함수
   const fetchStudyData = async () => {
     try {
@@ -60,10 +61,16 @@ function StudyPage() {
     if (inputPassword === studyData.password) {
       closeModal();
       if (actionType === "edit") {
-        navigate(`/study/${id}/todayhabits`);
-      } else if (actionType === "delete") {
+        navigate(`/study/${id}/editpage`);
+      }
+      if (actionType === "delete") {
         handleDeleteStudy();
-        console.log("Study deleted successfully");
+      }
+      if (actionType === "habit") {
+        navigate(`/study/${id}/todayhabits`);
+      }
+      if (actionType === "focus") {
+        navigate(`/study/${id}/focus`);
       }
     } else {
       setAlertMessage("🚨 비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
@@ -151,7 +158,14 @@ function StudyPage() {
 
         <div className="introduce-box">
           {studyData.nickName ? (
-            <div className="UserName">{studyData.nickName} 의 {studyData.studyName}</div>
+            <div className="UserName">{studyData.nickName} 의 {studyData.studyName}
+              <div className="dirButton">
+                <div className="habitButton"
+                  onClick={() => openModal("habit")}>오늘의 습관</div>
+                <div className="focusButton"
+                  onClick={() => openModal("focus")}>오늘의 집중</div>
+              </div>
+            </div>
           ) : (
             <p>로딩 중...</p>
           )}

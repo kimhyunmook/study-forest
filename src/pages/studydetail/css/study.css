@@ -139,12 +139,48 @@
 }
 
 .UserName {
+  display: flex;
   font-size: 32px;
   font-weight: 800;
   line-height: 38.19px;
   color: #414141;
-
+  justify-content: space-between;
   margin-bottom: 10px;
+}
+
+.dirButton {
+  display: flex;
+  gap: 8px;
+}
+
+.habitButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 144px;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.09px;
+  border-radius: 15px;
+  color: #818181;
+  border: 1px solid #DDDDDD;
+  cursor: pointer;
+}
+
+.focusButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 144px;
+  height: 48px;
+  color: #818181;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.09px;
+  border-radius: 15px;
+  border: 1px solid #DDDDDD;
+  cursor: pointer;
 }
 
 .now-point {
