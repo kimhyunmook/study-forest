@@ -5,6 +5,7 @@ import DetailPage from "./pages/detailPage/DetailPage";
 import FocusPage from "./pages/focusPage/FocusPage";
 import TodayHabits from "./pages/habits/todayHabits";
 import StudyDetail from "./pages/studydetail/study/study";
+import EditPage from "./pages/editPage/editPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/detail" element={<DetailPage />} />
           <Route path="/study/:id/focus" element={<FocusPage />} />
           <Route path="/study/:id" element={<StudyDetail />} />
+          <Route path="/study/:id/editpage" element={<EditPage />} />
         </Routes>
       </div>
     </BrowserRouter>
