@@ -6,7 +6,7 @@ import instance from "../../../shared/api/instance";
 // 1. 오늘의 습관 조회
 export async function getHabits() {
   try {
-    const response = await axios.get(`${API_URL}/habits`);
+    const response = await instance.get(`/habits`);
     return response.data;
   } catch (error) {
     console.error("오늘의 습관 조회 실패:", error.message);
@@ -17,7 +17,7 @@ export async function getHabits() {
 // 2. 습관 추가
 export async function updateHabitName(id, name) {
   try {
-    const response = await axios.put(`${API_URL}/habitPage/habits/${id}`, { name });
+    const response = await instance.put(`/habitPage/habits/${id}`, { name });
     return response.data;
   } catch (error) {
     console.error("습관 추가 실패:", error.message);
@@ -28,7 +28,7 @@ export async function updateHabitName(id, name) {
 // 3. 습관 삭제
 export async function deleteHabit(id) {
   try {
-    await axios.delete(`${API_URL}/habits/${id}`);
+    await instance.delete(`/habits/${id}`);
     return true; // 삭제 성공 시 true 반환
   } catch (error) {
     console.error("습관 삭제 실패:", error.message);
@@ -39,7 +39,7 @@ export async function deleteHabit(id) {
 // 4. 오늘의 습관 박스 체크/해제
 export async function toggleHabitCheck(id) {
   try {
-    const response = await axios.post(`${API_URL}/habit/${id}/check`);
+    const response = await instance.post(`/habit/${id}/check`);
     return response.data;
   } catch (error) {
     console.error("체크/해제 실패:", error.message);
@@ -50,7 +50,7 @@ export async function toggleHabitCheck(id) {
 
 export const getNickNameById = async (id) => {
   try {
-    const response = await axios.get(`${API_URL}/study/${id}`);
+    const response = await instance.get(`/study/${id}`);
     return response.data.data.nickName; // nickName만 반환
   } catch (err) {
     console.error("닉네임 가져오기 실패:", err);
