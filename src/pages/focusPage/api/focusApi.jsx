@@ -3,7 +3,7 @@ import { API_URL } from "../../../shared/api/API_URL";
 
 export async function getStudyInfo(id) {
   try {
-    const response = await axios.get(`${API_URL}/api/focus/${id}`);
+    const response = await axios.get(`${API_URL}/api/focus/study/${id}`);
     return response.data;
   } catch (err) {
     console.log(err);
