@@ -55,7 +55,7 @@ export default function Home() {
         setLoading(false);
         setCardLoading(false);
       });
-    }, 3000);
+    }, 2000);
   }, []);
 
   const moreBtnHandle = (e) => {
@@ -102,7 +102,7 @@ export default function Home() {
         titleMargin={"40px"}
         marginBottom="40px"
       >
-        <Cards noList="아직 조회한 스터디가 없어요" height="229px">
+        <Cards noList="아직 조회한 스터디가 없어요" height="243px">
           {studyLook.map((v, i) => {
             if (!!v)
               return (
@@ -143,7 +143,7 @@ export default function Home() {
             loading={cardLoading}
             style={{
               position: "absolute",
-              height: "100%",
+              height: "102%",
               background: "#fff",
               zIndex: 98,
             }}
