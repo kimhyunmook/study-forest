@@ -43,19 +43,19 @@ export default function Home() {
       API(() => {
         setCardLoading(false);
       });
-    }, 2000);
+    }, 1000);
   }, [pageSize, orderBy]);
   useEffect(() => {
     API();
   }, [lender]);
   useEffect(() => {
-    // setLoading(true);
+    setLoading(true);
     setTimeout(() => {
       API(() => {
         setLoading(false);
         setCardLoading(false);
       });
-    }, 2000);
+    }, 1000);
   }, []);
 
   const moreBtnHandle = (e) => {
@@ -71,7 +71,7 @@ export default function Home() {
           setStudy([...res.data]);
           setCardLoading(false);
         });
-      }, 2000);
+      }, 1000);
     }
   };
   const cardLink = (id, time = 0) => {
