@@ -1,5 +1,7 @@
 import axios from "axios";
 import { API_URL } from "../../../shared/api/API_URL"; 
+import instance from "../../../shared/api/instance";
+
 
 // 1. 오늘의 습관 조회
 export async function getHabits() {
@@ -15,7 +17,7 @@ export async function getHabits() {
 // 2. 습관 추가
 export async function updateHabitName(id, name) {
   try {
-    const response = await axios.put(`${API_URL}/habits/${id}`, { name });
+    const response = await axios.put(`${API_URL}/habitPage/habits/${id}`, { name });
     return response.data;
   } catch (error) {
     console.error("습관 추가 실패:", error.message);
@@ -55,3 +57,14 @@ export const getNickNameById = async (id) => {
     throw err;
   }
 };
+
+export const getStudyById = async (id) => {
+  try {
+    const response = await instance.get(`/api/study/${id}`);
+    return response.data.data;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+

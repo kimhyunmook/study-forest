@@ -1,22 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import HabitsList from "./components/HabitList";
 import Modal from "./components/Modal";
 import "./todayHabits.css";
 import Layout from "../../shared/components/Layout";
+import axios from "axios";
+import { useParams } from "react-router-dom"; // studyId 동적 가져오기
+import instance from "../../shared/api/instance";
 
 const TodayHabits = () => {
-  const [habits, setHabits] = useState([
-    "미라클모닝 6시 기상",
-    "아침 챙겨 먹기",
-    "React 스터디 책 1챕터 읽기",
-    "스트레칭",
-    "영양제 챙겨 먹기",
-    "사이드 프로젝트",
-    "물 2L 먹기",
-  ]);
-
+  const { studyId } = useParams(); // URL에서 studyId를 동적으로 가져옴
+  const [habits, setHabits] = useState([]); // 습관 데이터를 저장할 상태
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+
+  // 습관 데이터 가져오기
+  useEffect(() => {
+    async function fetchHabits() {
+      try {
+        const response = await axios.get(`/api/habitPage/habits`);
+        setHabits(response.data.data.map((habit) => habit.name)); // 이름만 추출해서 저장
+      } catch (error) {
+        console.error("오늘의 습관 데이터 가져오기 실패:", error);
+      }
+    }
+
+    fetchHabits();
+  }, [studyId]);
+
+  // 습관 목록 업데이트 (추가/삭제 후 호출)
+  const updateHabits = async (updatedHabits) => {
+    // 로컬 상태 업데이트 (API 통신 전에도 화면에 즉시 반영)
+    setHabits(updatedHabits); 
+  
+    // API 호출을 통해 백엔드와 동기화
+    try {
+      await instance.put(`/api/habitPage/${studyId}/habits`, { habits: updatedHabits });
+    } catch (error) {
+      console.error("습관 업데이트 실패:", error);
+    }
+  };
 
   return (
     <Layout paddingBottom={"100px"} width={"1248px"}>
@@ -51,7 +74,7 @@ const TodayHabits = () => {
         {isModalOpen && (
           <Modal
             habits={habits}
-            onUpdate={(updatedHabits) => setHabits(updatedHabits)} // 습관 업데이트
+            onUpdate={(updatedHabits) => updateHabits(updatedHabits)} // 습관 업데이트 로직 전달
             onClose={() => setIsModalOpen(false)} // Modal 닫기
           />
         )}
@@ -61,4 +84,3 @@ const TodayHabits = () => {
 };
 
 export default TodayHabits;
-
