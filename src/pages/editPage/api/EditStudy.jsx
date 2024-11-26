@@ -1,5 +1,4 @@
-import axios from "axios";
-import { API_URL } from "../../../shared/api/API_URL";
+import instance from "../../../shared/api/instance";
 
 export const EditStudy = async ({
   id,
@@ -10,7 +9,7 @@ export const EditStudy = async ({
   password,
 }) => {
   try {
-    const response = await axios.patch(`${API_URL}/api/detailPage/${id}`, {
+    const response = await instance.patch(`/api/detailPage/${id}`, {
       nickName,
       studyName,
       introduce,
