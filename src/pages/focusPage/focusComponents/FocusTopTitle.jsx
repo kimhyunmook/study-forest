@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import "./FocusTopTitle.css";
 
 function FocusTopTitle({ studyInfo, id }) {
-  const nickName = studyInfo?.nickName || "로딩 중...";
-  const studyName = studyInfo?.studyName || "로딩 중...";
+  const nickName = studyInfo.data?.nickName || "로딩 중...";
+  const studyName = studyInfo.data?.studyName || "로딩 중...";
 
   return (
     <div className="focusTopTitle">
