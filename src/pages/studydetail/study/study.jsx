@@ -135,7 +135,7 @@ function StudyPage() {
               </div>
             </div>
 
-            {/* 버튼 그룹 */}
+            {/* 버튼그룹 */}
             <div className="button-group">
               <button
                 className="button-click"
