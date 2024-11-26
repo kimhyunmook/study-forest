@@ -42,7 +42,7 @@ const Header = () => {
         </p>
       </div>
       <div className="header-right">
-        <button className="nav-button" onClick={() => navigate("/focuspage")}>
+        <button className="nav-button" onClick={() => navigate("/study/:id/focus")}>
           오늘의 집중 &gt;
         </button>
         <button className="nav-button" onClick={() => navigate("/")}>

@@ -17,7 +17,7 @@ export async function getHabits() {
 // 2. 습관 추가
 export async function updateHabitName(id, name) {
   try {
-    const response = await axios.put(`${API_URL}/habits/${id}`, { name });
+    const response = await axios.put(`${API_URL}/habitPage/habits/${id}`, { name });
     return response.data;
   } catch (error) {
     console.error("습관 추가 실패:", error.message);

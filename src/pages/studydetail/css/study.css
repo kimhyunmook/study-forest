@@ -4,12 +4,14 @@
 .study-page-contain {
   width: 1200px;
   display: flex;
+  position: relative;
   flex-direction: column;
   margin: 0 auto;
   padding: 40px;
   gap: 10px;
   border-radius: 20px;
   background-color: white;
+  border: 1px solid black;
 
 }
 
@@ -628,9 +630,8 @@
 .emoji-All-List {
   display: flex;
   position: absolute;
-  top: 180px;
-  left: 50%;
-  transform: translateX(-235%);
+  top: 80px;
+  left: 31px;
   width: 242px;
   padding: 10px;
   gap: 10px;
@@ -670,10 +671,10 @@
 
 .custom-alert-1 {
   position: fixed;
-  top: 850px;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #FDE0E9;
+  background-color: #fde0e9;
   padding: 14px 28px;
   border-radius: 12px;
   text-align: center;

@@ -5,18 +5,20 @@ import Modal from "./components/Modal";
 import "./todayHabits.css";
 import Layout from "../../shared/components/Layout";
 import axios from "axios";
+import { useParams } from "react-router-dom"; // studyId 동적 가져오기
+import instance from "../../shared/api/instance";
 
 const TodayHabits = () => {
+  const { studyId } = useParams(); // URL에서 studyId를 동적으로 가져옴
   const [habits, setHabits] = useState([]); // 습관 데이터를 저장할 상태
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const studyId = "현재 Study ID"; // Study ID를 동적으로 가져오거나 useParams를 사용할 수 있음
+  
 
   // 습관 데이터 가져오기
   useEffect(() => {
     async function fetchHabits() {
       try {
-        const response = await axios.get(`/api/study/${studyId}/habits`);
+        const response = await axios.get(`/api/habitPage/habits`);
         setHabits(response.data.data.map((habit) => habit.name)); // 이름만 추출해서 저장
       } catch (error) {
         console.error("오늘의 습관 데이터 가져오기 실패:", error);
@@ -28,10 +30,12 @@ const TodayHabits = () => {
 
   // 습관 목록 업데이트 (추가/삭제 후 호출)
   const updateHabits = async (updatedHabits) => {
+    // 로컬 상태 업데이트 (API 통신 전에도 화면에 즉시 반영)
+    setHabits(updatedHabits); 
+  
+    // API 호출을 통해 백엔드와 동기화
     try {
-      // 여기에서 습관 추가/삭제 API 호출 가능
-      // 예: axios.post 또는 axios.delete
-      setHabits(updatedHabits); // UI에 반영
+      await instance.put(`/api/habitPage/${studyId}/habits`, { habits: updatedHabits });
     } catch (error) {
       console.error("습관 업데이트 실패:", error);
     }
@@ -70,7 +74,7 @@ const TodayHabits = () => {
         {isModalOpen && (
           <Modal
             habits={habits}
-            onUpdate={updateHabits} // 습관 업데이트 함수 전달
+            onUpdate={(updatedHabits) => updateHabits(updatedHabits)} // 습관 업데이트 로직 전달
             onClose={() => setIsModalOpen(false)} // Modal 닫기
           />
         )}

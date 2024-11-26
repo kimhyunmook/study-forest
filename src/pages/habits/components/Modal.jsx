@@ -1,22 +1,29 @@
 import React, { useState } from "react";
 import "./Modal.css";
-import DeleteIcon from "../icons/btn_determinate.png";
 import axios from "axios";
+import DeleteIcon from "../icons/btn_determinate.png";
+import instance from "../../../shared/api/instance";
 
-const Modal = ({ habits, studyId, onUpdate, onClose }) => {
+const Modal = ({ habits, onUpdate, onClose }) => {
   const [tempHabits, setTempHabits] = useState(habits); // 임시 습관 목록
   const [showInput, setShowInput] = useState(false); // 입력칸 표시 여부
   const [newHabit, setNewHabit] = useState(""); // 새로 입력할 습관
 
   // 습관 삭제 함수 (백엔드와 동기화)
-  const handleDeleteHabit = async (index, habitId) => {
+  const handleDeleteHabit = async (habitId, index) => {
     try {
-      // 해당 습관 삭제 API 호출
-      await axios.delete(`/api/study/${studyId}/habits/${habitId}`);
-      const updatedHabits = tempHabits.filter((_, i) => i !== index); // 삭제된 습관 제외
+      // API 요청
+      await axios.delete(`api/habitPage/habits/${habitId}`); // API 경로 수정
+      // 상태 업데이트
+      const updatedHabits = tempHabits.filter((_, i) => i !== index); // 해당 인덱스 제외
       setTempHabits(updatedHabits);
+      console.log("습관 삭제 성공");
     } catch (error) {
-      console.error("습관 삭제 실패:", error);
+      console.error("습관 삭제 실패:", error.message);
+      if (error.response) {
+        console.error("응답 상태 코드:", error.response.status);
+        console.error("응답 데이터:", error.response.data);
+      }
     }
   };
 
@@ -24,22 +31,29 @@ const Modal = ({ habits, studyId, onUpdate, onClose }) => {
   const handleAddHabit = async () => {
     if (newHabit.trim()) {
       try {
-        const response = await axios.post(`/api/study/${studyId}/habits`, {
+        // API 요청
+        const response = await instance.post(`/api/habitPage/habits`, {
           name: newHabit,
-        });
-        const addedHabit = response.data.data; // 백엔드에서 반환된 새로운 습관 데이터
-        setTempHabits([...tempHabits, addedHabit.name]); // UI 업데이트
+        }); // API 경로 수정
+        const addedHabit = response.data; // 새로 추가된 습관 데이터
+        // 상태 업데이트
+        setTempHabits([...tempHabits, addedHabit]); // 새 습관 추가
         setNewHabit(""); // 입력 초기화
         setShowInput(false); // 입력칸 숨기기
+        console.log("습관 추가 성공:", addedHabit);
       } catch (error) {
-        console.error("습관 추가 실패:", error);
+        console.error("습관 추가 실패:", error.message);
+        if (error.response) {
+          console.error("응답 상태 코드:", error.response.status);
+          console.error("응답 데이터:", error.response.data);
+        }
       }
     }
   };
 
   // 수정 완료 함수
   const handleConfirm = () => {
-    const updatedHabits = tempHabits.filter((habit) => habit.trim() !== ""); // 빈칸 제거
+    const updatedHabits = tempHabits.filter((habit) => habit.name.trim() !== ""); // 빈칸 제거
     onUpdate(updatedHabits); // 부모 컴포넌트로 전달
     onClose(); // 모달 닫기
   };
@@ -50,11 +64,11 @@ const Modal = ({ habits, studyId, onUpdate, onClose }) => {
         <h2 className="modal-title">습관 목록</h2>
         <ul className="modal-list">
           {tempHabits.map((habit, index) => (
-            <li key={index} className="modal-item">
-              <span className="habit-text">{habit}</span>
+            <li key={habit.id} className="modal-item">
+              <span className="habit-text">{habit.name}</span>
               <button
                 className="delete-button"
-                onClick={() => handleDeleteHabit(index, habit.id)} // 삭제 버튼 클릭 시 삭제
+                onClick={() => handleDeleteHabit(habit.id, index)} // 삭제 버튼 클릭 시 삭제
               >
                 <img src={DeleteIcon} alt="삭제" className="delete-icon" />
               </button>
@@ -70,7 +84,7 @@ const Modal = ({ habits, studyId, onUpdate, onClose }) => {
                 onChange={(e) => setNewHabit(e.target.value)} // 입력값 업데이트
                 placeholder="새로운 습관 입력"
                 className="modal-input"
-                onKeyPress={(e) => {
+                onKeyDown={(e) => {
                   if (e.key === "Enter") handleAddHabit(); // Enter 키로 추가
                 }}
               />
