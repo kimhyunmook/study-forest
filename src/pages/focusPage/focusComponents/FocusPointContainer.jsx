@@ -1,7 +1,8 @@
 import "./FocusPointContainer.css";
 
 function FocusPointContainer({ studyInfo }) {
-  const point = studyInfo.data.point;
+  const point = studyInfo?.data?.point || 0;
+
   return (
     <div className="focusPointCon">
       <img
@@ -13,4 +14,5 @@ function FocusPointContainer({ studyInfo }) {
     </div>
   );
 }
+
 export default FocusPointContainer;
