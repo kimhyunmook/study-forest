@@ -22,7 +22,7 @@ function FocusPage() {
 
   // 점수 계산
   const newPoint =
-    initialMin > 30 ? Math.floor((initialMin * 60 + initialSec) / 600 + 3) : 0;
+    initialMin >= 30 ? Math.floor((initialMin * 60 + initialSec) / 600 + 3) : 0;
 
   useEffect(() => {
     const axiosStudyInfo = async () => {
