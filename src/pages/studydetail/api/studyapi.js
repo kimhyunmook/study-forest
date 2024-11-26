@@ -26,7 +26,7 @@ export const createEmoji = async (native, studyId) => {
 export const deleteStudyById = async (id) => {
   console.log("API 호출 ID:", id);
   try {
-    await instance.delete(`/api/study/${id}`);
+    await instance.delete(`/api/home/study/${id}`);
   } catch (err) {
     console.error("스터디 삭제 중 오류 발생:", err);
     throw err;
