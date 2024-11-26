@@ -1,24 +1,39 @@
 import React, { useState } from "react";
 import "./Modal.css";
 import DeleteIcon from "../icons/btn_determinate.png";
+import axios from "axios";
 
-const Modal = ({ habits, onUpdate, onClose }) => {
+const Modal = ({ habits, studyId, onUpdate, onClose }) => {
   const [tempHabits, setTempHabits] = useState(habits); // 임시 습관 목록
   const [showInput, setShowInput] = useState(false); // 입력칸 표시 여부
   const [newHabit, setNewHabit] = useState(""); // 새로 입력할 습관
 
-  // 습관 삭제 함수
-  const handleDeleteHabit = (index) => {
-    const updatedHabits = tempHabits.filter((_, i) => i !== index); // 해당 인덱스 제외
-    setTempHabits(updatedHabits);
+  // 습관 삭제 함수 (백엔드와 동기화)
+  const handleDeleteHabit = async (index, habitId) => {
+    try {
+      // 해당 습관 삭제 API 호출
+      await axios.delete(`/api/study/${studyId}/habits/${habitId}`);
+      const updatedHabits = tempHabits.filter((_, i) => i !== index); // 삭제된 습관 제외
+      setTempHabits(updatedHabits);
+    } catch (error) {
+      console.error("습관 삭제 실패:", error);
+    }
   };
 
-  // 입력한 습관 추가 함수
-  const handleAddHabit = () => {
+  // 입력한 습관 추가 함수 (백엔드와 동기화)
+  const handleAddHabit = async () => {
     if (newHabit.trim()) {
-      setTempHabits([...tempHabits, newHabit]); // 새 습관 추가
-      setNewHabit(""); // 입력 초기화
-      setShowInput(false); // 입력칸 숨기기
+      try {
+        const response = await axios.post(`/api/study/${studyId}/habits`, {
+          name: newHabit,
+        });
+        const addedHabit = response.data.data; // 백엔드에서 반환된 새로운 습관 데이터
+        setTempHabits([...tempHabits, addedHabit.name]); // UI 업데이트
+        setNewHabit(""); // 입력 초기화
+        setShowInput(false); // 입력칸 숨기기
+      } catch (error) {
+        console.error("습관 추가 실패:", error);
+      }
     }
   };
 
@@ -39,7 +54,7 @@ const Modal = ({ habits, onUpdate, onClose }) => {
               <span className="habit-text">{habit}</span>
               <button
                 className="delete-button"
-                onClick={() => handleDeleteHabit(index)} // 삭제 버튼 클릭 시 삭제
+                onClick={() => handleDeleteHabit(index, habit.id)} // 삭제 버튼 클릭 시 삭제
               >
                 <img src={DeleteIcon} alt="삭제" className="delete-icon" />
               </button>
