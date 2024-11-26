@@ -1,5 +1,3 @@
-import axios from "axios";
-import { API_URL } from "../../../shared/api/API_URL";
 import instance from "../../../shared/api/instance";
 
 export const createStudy = async ({
