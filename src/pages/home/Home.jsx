@@ -9,10 +9,11 @@ import { setCookie } from "../../shared/hook/hook";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const page = 1;
   const [study, setStudy] = useState([{}]);
   const [studyLook, setStudyLook] = useState([{}]);
   const [cok, setCok] = useState([]);
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(6);
   const [orderBy, setOrderBy] = useState("desc"); //asc
   const [keyword, setKeyword] = useState("");
@@ -43,19 +44,19 @@ export default function Home() {
       API(() => {
         setCardLoading(false);
       });
-    }, 2000);
+    }, 1000);
   }, [pageSize, orderBy]);
   useEffect(() => {
     API();
   }, [lender]);
   useEffect(() => {
-    // setLoading(true);
+    setLoading(true);
     setTimeout(() => {
       API(() => {
         setLoading(false);
         setCardLoading(false);
       });
-    }, 3000);
+    }, 1000);
   }, []);
 
   const moreBtnHandle = (e) => {
@@ -71,7 +72,7 @@ export default function Home() {
           setStudy([...res.data]);
           setCardLoading(false);
         });
-      }, 2000);
+      }, 1000);
     }
   };
   const cardLink = (id, time = 0) => {
@@ -102,7 +103,7 @@ export default function Home() {
         titleMargin={"40px"}
         marginBottom="40px"
       >
-        <Cards noList="아직 조회한 스터디가 없어요" height="229px">
+        <Cards noList="아직 조회한 스터디가 없어요" height="243px">
           {studyLook.map((v, i) => {
             if (!!v)
               return (
@@ -143,7 +144,7 @@ export default function Home() {
             loading={cardLoading}
             style={{
               position: "absolute",
-              height: "100%",
+              height: "102%",
               background: "#fff",
               zIndex: 98,
             }}

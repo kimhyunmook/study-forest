@@ -1,5 +1,6 @@
 import axios from "axios";
 import { API_URL } from "../../../shared/api/API_URL";
+import instance from "../../../shared/api/instance";
 
 export const createStudy = async ({
   nickName,
@@ -9,7 +10,7 @@ export const createStudy = async ({
   password,
 }) => {
   try {
-    const response = await axios.post(`${API_URL}/api/detailPage/create`, {
+    const response = await instance.post(`/api/detailPage/create`, {
       nickName,
       studyName,
       introduce,

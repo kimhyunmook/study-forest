@@ -8,6 +8,8 @@ import { StuModal } from "../components/stuModal";
 import { PasswordErrorModal } from "../components/passwordErrorModal";
 import { deleteStudyById } from "../api/studyapi";
 import Layout from "../../../shared/components/Layout";
+import Loading from "../../../shared/components/Loading";
+
 function StudyPage() {
   const navigate = useNavigate();
   const { id } = useParams(); // URL에서 스터디 ID 추출
@@ -21,6 +23,7 @@ function StudyPage() {
   const [alertMessage, setAlertMessage] = useState(""); // 모달 메시지
   const pointIcon = "/img/pointIcon.png"; // 포인트 아이콘 경로
   const [emojiList, setEmojiList] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const right = "/img/right.png";
   // 데이터 요청 함수
@@ -29,6 +32,7 @@ function StudyPage() {
       const data = await getStudyById(id);
       setStudyData(data);
       setHabitData(data.habit || []);
+      setLoading(false);
     } catch (error) {
       console.error("Failed to fetch study data:", error.message);
     }
@@ -93,6 +97,7 @@ function StudyPage() {
 
   return (
     <Layout paddingBottom={"100px"}>
+      <Loading loading={loading}></Loading>
       <div>
         <div className="study-page-contain">
           {/* 이모지 리스트 */}
