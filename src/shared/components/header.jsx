@@ -14,9 +14,7 @@ export default function Header() {
           <Button to={"/detail"} width={"254px"} height={"50px"}>
             스터디 만들기
           </Button>
-        ) : (
-          <div></div>
-        )}
+        ) : null}
       </div>
     </header>
   );

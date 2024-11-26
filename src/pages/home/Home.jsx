@@ -9,10 +9,11 @@ import { setCookie } from "../../shared/hook/hook";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const page = 1;
   const [study, setStudy] = useState([{}]);
   const [studyLook, setStudyLook] = useState([{}]);
   const [cok, setCok] = useState([]);
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(6);
   const [orderBy, setOrderBy] = useState("desc"); //asc
   const [keyword, setKeyword] = useState("");
