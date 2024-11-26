@@ -3,11 +3,13 @@ import "./Modal.css";
 import axios from "axios";
 import DeleteIcon from "../icons/btn_determinate.png";
 import instance from "../../../shared/api/instance";
-
+import { useParams, useNavigate } from "react-router-dom";
 const Modal = ({ habits, onUpdate, onClose, studyId }) => {
   const [tempHabits, setTempHabits] = useState(habits); // 임시 습관 목록
   const [showInput, setShowInput] = useState(false); // 입력칸 표시 여부
   const [newHabit, setNewHabit] = useState(""); // 새로 입력할 습관
+  const navigate = useNavigate();
+  const { id } = useParams();
 
   // 습관 삭제 함수 (백엔드와 동기화)
   const handleDeleteHabit = async (habitId, index) => {
@@ -16,6 +18,9 @@ const Modal = ({ habits, onUpdate, onClose, studyId }) => {
       await instance.delete(`/api/habitPage/habits/${habitId}`);
       setTempHabits((prevHabits) => prevHabits.filter((_, i) => i !== index)); // UI 반영
       console.log("습관 삭제 성공");
+      if (!newHabit.trim()) {
+        navigate(`/study/${id}`);
+      }
     } catch (error) {
       console.error("습관 삭제 실패:", error);
     }
@@ -43,6 +48,7 @@ const Modal = ({ habits, onUpdate, onClose, studyId }) => {
       } catch (error) {
         console.error("습관 추가 실패:", error);
       }
+      navigate(`/study/${id}`);
     }
   };
 
@@ -51,6 +57,7 @@ const Modal = ({ habits, onUpdate, onClose, studyId }) => {
     const updatedHabits = tempHabits.filter((habit) => habit.name.trim() !== ""); // 빈칸 제거
     onUpdate(updatedHabits); // 부모 컴포넌트로 전달
     onClose(); // 모달 닫기
+    navigate(`/study/${id}`);
   };
 
   return (
