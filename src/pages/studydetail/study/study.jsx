@@ -137,7 +137,9 @@ function StudyPage() {
 
             {/* 버튼 그룹 */}
             <div className="button-group">
-              <button className="button-click">공유하기 | </button>
+              <button 
+              className="button-click"
+              >공유하기 | </button>
               <button
                 className="button-click"
                 onClick={() => openModal("edit")}
