@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./Header.css";
 import TimeDisplay from "./Timedisplay";
 import { useNavigate, useParams } from "react-router-dom";
-import { getStudyById } from "../api/habitsApi"; // API 함수
+import { getStudyById } from "../../studydetail/api/studyapi";
 
-const Header = () => {
+const Header = ({ studyId }) => {
   const navigate = useNavigate();
-  const { id: studyId } = useParams(); // URL에서 studyId 추출
   const [studyData, setStudyData] = useState(null); // studyData 저장
 
   useEffect(() => {
@@ -42,7 +41,7 @@ const Header = () => {
         </p>
       </div>
       <div className="header-right">
-        <button className="nav-button" onClick={() => navigate("/study/:id/focus")}>
+        <button className="nav-button" onClick={() => navigate(`/study/${studyId}/focus`)}>
           오늘의 집중 &gt;
         </button>
         <button className="nav-button" onClick={() => navigate("/")}>

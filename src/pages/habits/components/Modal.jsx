@@ -4,51 +4,49 @@ import axios from "axios";
 import DeleteIcon from "../icons/btn_determinate.png";
 import instance from "../../../shared/api/instance";
 
-const Modal = ({ habits, onUpdate, onClose }) => {
+const Modal = ({ habits, onUpdate, onClose, studyId }) => {
   const [tempHabits, setTempHabits] = useState(habits); // 임시 습관 목록
   const [showInput, setShowInput] = useState(false); // 입력칸 표시 여부
   const [newHabit, setNewHabit] = useState(""); // 새로 입력할 습관
 
   // 습관 삭제 함수 (백엔드와 동기화)
   const handleDeleteHabit = async (habitId, index) => {
+    console.log(habitId);
     try {
-      await instance.delete(`/api/habitPage/habits/${habitId}`); // 서버 라우터와 경로 일치
-      setTempHabits((prevHabits) => prevHabits.filter((_, i) => i !== index)); // UI에서 삭제
+      await instance.delete(`/api/habitPage/habits/${habitId}`);
+      setTempHabits((prevHabits) => prevHabits.filter((_, i) => i !== index)); // UI 반영
       console.log("습관 삭제 성공");
     } catch (error) {
-      console.error("습관 삭제 실패:", error.message);
-      if (error.response) {
-        console.error("응답 상태 코드:", error.response.status);
-        console.error("응답 데이터:", error.response.data);
-      }
+      console.error("습관 삭제 실패:", error);
     }
   };
 
-  // 입력한 습관 추가 함수 (백엔드와 동기화)
+  // 수정 완료 버튼 클릭 시 습관 추가 함수 (백엔드와 동기화)
   const handleAddHabit = async () => {
     if (newHabit.trim()) {
       try {
-        // API 요청
+        console.log("fe post요청1 : " + studyId);
+        // 습관 추가 요청 시 studyId를 함께 전달
         const response = await instance.post(`/api/habitPage/habits`, {
-          name: newHabit,
-        }); // API 경로 수정
-        const addedHabit = response.data; // 새로 추가된 습관 데이터
-        // 상태 업데이트
-        setTempHabits([...tempHabits, addedHabit]); // 새 습관 추가
-        setNewHabit(""); // 입력 초기화
-        setShowInput(false); // 입력칸 숨기기
+          name: newHabit,      // 입력한 습관 이름
+          studyId: studyId,         // studyId 추가
+        });
+        if (response.status === 201) {
+          onClose();
+        }
+        console.log("fe post요청2 : " + studyId);
+        const addedHabit = response.data;  // 새로 추가된 습관 데이터
+        setTempHabits([...tempHabits, addedHabit]);  // UI에 반영
+        setNewHabit("");  // 입력 초기화
+        setShowInput(false);  // 입력칸 숨기기
         console.log("습관 추가 성공:", addedHabit);
       } catch (error) {
-        console.error("습관 추가 실패:", error.message);
-        if (error.response) {
-          console.error("응답 상태 코드:", error.response.status);
-          console.error("응답 데이터:", error.response.data);
-        }
+        console.error("습관 추가 실패:", error);
       }
     }
   };
 
-  // 수정 완료 함수
+  // 수정 완료 함수 (모든 습관을 업데이트)
   const handleConfirm = () => {
     const updatedHabits = tempHabits.filter((habit) => habit.name.trim() !== ""); // 빈칸 제거
     onUpdate(updatedHabits); // 부모 컴포넌트로 전달
@@ -115,7 +113,7 @@ const Modal = ({ habits, onUpdate, onClose }) => {
           <button className="cancel-button" onClick={onClose}>
             취소
           </button>
-          <button className="confirm-button" onClick={handleConfirm}>
+          <button className="confirm-button" onClick={handleAddHabit}>
             수정 완료
           </button>
         </div>

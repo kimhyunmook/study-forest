@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL } from "../../../shared/api/API_URL"; 
+import { API_URL } from "../../../shared/api/API_URL";
 import instance from "../../../shared/api/instance";
 
 
@@ -60,7 +60,7 @@ export const getNickNameById = async (id) => {
 
 export const getStudyById = async (id) => {
   try {
-    const response = await instance.get(`/api/study/${id}`);
+    const response = await instance.get(`/api/habitPage/habits/${id}`);
     return response.data.data;
   } catch (err) {
     console.error(err);
