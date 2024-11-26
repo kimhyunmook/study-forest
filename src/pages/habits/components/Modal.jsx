@@ -12,11 +12,8 @@ const Modal = ({ habits, onUpdate, onClose }) => {
   // 습관 삭제 함수 (백엔드와 동기화)
   const handleDeleteHabit = async (habitId, index) => {
     try {
-      // API 요청
-      await axios.delete(`api/habitPage/habits/${habitId}`); // API 경로 수정
-      // 상태 업데이트
-      const updatedHabits = tempHabits.filter((_, i) => i !== index); // 해당 인덱스 제외
-      setTempHabits(updatedHabits);
+      await instance.delete(`/api/habitPage/habits/${habitId}`); // 서버 라우터와 경로 일치
+      setTempHabits((prevHabits) => prevHabits.filter((_, i) => i !== index)); // UI에서 삭제
       console.log("습관 삭제 성공");
     } catch (error) {
       console.error("습관 삭제 실패:", error.message);
@@ -64,18 +61,21 @@ const Modal = ({ habits, onUpdate, onClose }) => {
         <h2 className="modal-title">습관 목록</h2>
         <ul className="modal-list">
           {tempHabits.map((habit, index) => (
-            <li key={habit.id} className="modal-item">
+            <li key={index} className="modal-item">
               <span className="habit-text">{habit.name}</span>
               <button
                 className="delete-button"
-                onClick={() => handleDeleteHabit(habit.id, index)} // 삭제 버튼 클릭 시 삭제
+                onClick={() => {
+                  console.log("삭제 버튼 클릭됨, habitId:", habit.id); // 삭제 버튼 클릭 시 habitId 출력
+                  handleDeleteHabit(habit.id, index); // 여기서 habit.id와 index를 전달
+                }}
               >
                 <img src={DeleteIcon} alt="삭제" className="delete-icon" />
               </button>
             </li>
           ))}
 
-          {/* 새 입력칸 */}
+          {/* 입력칸 표시 */}
           {showInput && (
             <li className="modal-item new-input">
               <input
@@ -85,7 +85,7 @@ const Modal = ({ habits, onUpdate, onClose }) => {
                 placeholder="새로운 습관 입력"
                 className="modal-input"
                 onKeyDown={(e) => {
-                  if (e.key === "Enter") handleAddHabit(); // Enter 키로 추가
+                  if (e.key === "Enter") handleAddHabit(); // Enter 키로 습관 추가
                 }}
               />
               <button
