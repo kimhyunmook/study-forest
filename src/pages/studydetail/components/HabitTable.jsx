@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../../shared/api/API_URL';
+import instance from "../../../shared/api/instance";
 
 function HabitTable({ habit }) {
     const [habitData, setHabitData] = useState(habit);
@@ -37,7 +38,7 @@ function HabitTable({ habit }) {
 
         try {
             const newValue = updatedData.find((item) => item.id === habitId)[dayKey];
-            const response = await axios.patch(`${API_URL}/api/home/habitUpdate`, {
+            const response = await instance.patch(`/api/home/habitUpdate`, {
                 habitId,
                 dayKey,
                 newValue,
