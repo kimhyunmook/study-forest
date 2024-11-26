@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./FocusTopTitle.css";
 
 function FocusTopTitle({ studyInfo, id }) {
+  // ?. -> 없으면 undefined -> 로딩중
   const nickName = studyInfo.data?.nickName || "로딩 중...";
   const studyName = studyInfo.data?.studyName || "로딩 중...";
 
